@@ -4,7 +4,7 @@
         private $_dbHost = 'localhost';
         private $_dbUser = 'root';
         private $_dbPass = '';
-        private $_dbName = 'projetweb';
+        private $_dbName = 'projweb';
 
         private $_statement;
         private $_dbHandler;
@@ -15,6 +15,7 @@
             
             try {
                 $this->_dbHandler = new PDO($conn, $this->_dbUser, $this->_dbPass); //Mysqli = sql injection
+                echo "réussie";
             } catch (PDOException $e) {
                 $this->_error = $e->getMessage();
                 echo $this->_error;

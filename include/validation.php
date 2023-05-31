@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 require_once('employe.php');
 
@@ -9,7 +8,8 @@ if(isset($_POST['login'])){
     $email = $_POST['email'];
     $password = $_POST['password'];
     $count = Employe::countbyemail($email,$password);
-
+ 
+    echo "Bonjour !!";
 
     if($count == 1){
         $employe = Employe::getOnebyemail($email,$password);
@@ -42,6 +42,7 @@ if(isset($_POST['login'])){
         
         
     }
+    else echo "Erreur Count !!";
 
 }
 

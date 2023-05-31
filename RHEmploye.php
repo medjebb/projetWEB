@@ -155,15 +155,15 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Gestion des entreprises</h1>
-                        <a href="RHaddentreprise.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fa fa-plus fa-sm text-white-50"></i> Ajouter une entreprise</a>
+                        <h1 class="h3 mb-0 text-gray-800">Gestion des Employés</h1>
+                        <a href="RHaddEmploye.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fa fa-plus fa-sm text-white-50"></i> Ajouter un employe</a>
                     </div>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Entreprise</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Employe</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -172,39 +172,109 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Nom</th>
-                                            <th>Address</th>
-                                            <th>Createur</th>
-                                            <th>Date Creation</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
+                                            <th>Prenom</th>
+                                            <th>Email</th>
+                                            <th>Password</th>
+                                            <th>Tel</th>
+                                            <th>sexe</th>
+                                            <th>role</th>
+                                            <th>adresse</th>
+                                            <th>Diplome</th>
+                                            <th>Date de Naissance</th>
+                                            <th>Date de Cr2ation</th>
+                                            <th>ID Createur</th>
+                                            <th>Salaire de Base</th>
+                                            <th>Nombre d'enfants</th>
+                                            <th>Date d'Embauche</th>
+                                            <th>Numero CNSS</th>
+                                            <th>Numero AMO</th>
+                                            <th>Numero IGR</th>
+                                            <th>Numero CIMR</th>
+                                            <th>ID d'entreprise</th>
+                                            <th>Editer</th>
+                                            <th>Supprimer</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>ID</th>
+                                        <th>ID</th>
                                             <th>Nom</th>
-                                            <th>Address</th>
-                                            <th>Createur</th>
-                                            <th>Date Creation</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
+                                            <th>Prenom</th>
+                                            <th>Email</th>
+                                            <th>Password</th>
+                                            <th>Tel</th>
+                                            <th>sexe</th>
+                                            <th>role</th>
+                                            <th>adresse</th>
+                                            <th>Diplome</th>
+                                            <th>Date de Naissance</th>
+                                            <th>Date de Cr2ation</th>
+                                            <th>ID Createur</th>
+                                            <th>Salaire de Base</th>
+                                            <th>Nombre d'enfants</th>
+                                            <th>Date d'Embauche</th>
+                                            <th>Numero CNSS</th>
+                                            <th>Numero AMO</th>
+                                            <th>Numero IGR</th>
+                                            <th>Numero CIMR</th>
+                                            <th>ID d'entreprise</th>
+                                            <th>Editer</th>
+                                            <th>Supprimer</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                     <?php
-                                        require_once('include/entreprise.php');
+                                        require_once('include/employe.php');
 
-                                        $entreprises = Entreprise::getAll();
+                                        $employes = Employe::getAll();
 
-                                        foreach($entreprises as $entreprise){
+                                        foreach($employes as $employe){
                                             echo "<tr>
-                                                    <td>".$entreprise['idEntreprise']."</td>
-                                                     <td>".$entreprise['nomEntreprise']."</td>
-                                                     <td>".$entreprise['address']."</td>
-                                                     <td>".$entreprise['createdBy']."</td>
-                                                     <td>".$entreprise['createDate']."</td>
-                                                     <td><a href='RHupdateentreprise.php?idEntreprise=".$entreprise['idEntreprise']."&nomEntreprise=".$entreprise['nomEntreprise']."&address=".$entreprise['address']."&createdBy=".$entreprise['createdBy']."&createDate=".$entreprise['createDate']."' class='btn btn-warning btn-circle btn-sm'><i class='fas fa-exclamation-triangle'></i></a></td>
-                                                     <td><a href='include/deleteentreprise.php?idEntreprise=".$entreprise['idEntreprise']."' class='btn btn-danger btn-circle btn-sm'><i class='fas fa-trash'></i></a></td>
+                                                     <td>".$employe['idEmploye']."</td>
+                                                     <td>".$employe['Nom']."</td>
+                                                     <td>".$employe['Prenom']."</td>
+                                                     <td>".$employe['Email']."</td>
+                                                     <td>".$employe['Password']."</td>
+                                                     <td>".$employe['Tel']."</td>
+                                                     <td>".$employe['sexe']."</td>
+                                                     <td>".$employe['role']."</td>
+                                                     <td>".$employe['address']."</td>
+                                                     <td>".$employe['Diplome']."</td>
+                                                     <td>".$employe['DateNaissance']."</td>
+                                                     <td>".$employe['DateCreation']."</td>
+                                                     <td>".$employe['idCreateur']."</td>
+                                                     <td>".$employe['SalairedeBase']."</td>
+                                                     <td>".$employe['NbEnfants']."</td>
+                                                     <td>".$employe['DateEmbauche']."</td>
+                                                     <td>".$employe['numCNSS']."</td>
+                                                     <td>".$employe['numAmo']."</td>
+                                                     <td>".$employe['numIGR']."</td>
+                                                     <td>".$employe['numCIMR']."</td>
+                                                     <td>".$employe['idEntreprise']."</td>
+                                                     <td><a href='RHupdateentreprise.php?idEmploye=".$employe['idEmploye'].
+                                                     "&Nom=".$employe['Nom'].
+                                                     "&Prenom=".$employe['Prenom'].
+                                                     "&Email=".$employe['Email'].
+                                                     "&Password=".$employe['Password'].
+                                                     "&Tel=".$employe['Tel'].
+                                                     "&sexe=".$employe['sexe'].
+                                                     "&role=".$employe['role'].
+                                                     "&address=".$employe['address'].
+                                                     "&Diplome=".$employe['Diplome'].
+                                                     "&DateNaissance=".$employe['DateNaissance'].
+                                                     "&DateCreation=".$employe['DateCreation'].
+                                                     "&idCreateur=".$employe['idCreateur'].
+                                                     "&SalairedeBase=".$employe['NbEnfants'].
+                                                     "&SalairedeBase=".$employe['DateEmbauche'].
+                                                     "&SalairedeBase=".$employe['numCNSS'].
+                                                     "&SalairedeBase=".$employe['numAmo'].
+                                                     "&SalairedeBase=".$employe['numIGR'].
+                                                     "&SalairedeBase=".$employe['numCIMR'].
+                                                     "&SalairedeBase=".$employe['idEntreprise'].
+                                                     "' class='btn btn-warning btn-circle btn-sm'><i class='fas fa-exclamation-triangle'></i></a></td>
+                                                     <td><a href='include/deleteentreprise.php?idEmploye=".$employe['idEmploye'].
+                                                     "' class='btn btn-danger btn-circle btn-sm'><i class='fas fa-trash'></i></a>
+                                                     </td>
                                                 </tr>";
                                         }
 
