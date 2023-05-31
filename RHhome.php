@@ -69,7 +69,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="RHverfiy.php">
                     <i class="fa fa-check-square"></i>
                     <span>Verify</span></a>
             </li>
