@@ -63,7 +63,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="RHEmploye.php">
                     <i class="fa fa-male"></i>
                     <span>Employe</span></a>
             </li>

@@ -29,6 +29,7 @@ function accepter(type,id) {
       const elements_1 = document.querySelector("#btn_verify_1");
       const elements_2 = document.querySelector("#btn_verify_2");
       const elements_3 = document.querySelector("#btn_verify_3");
+      const elements_4 = document.querySelector("#btn_verify_4");
       console.log("jjj");
 
       console.log(elements_1);
@@ -46,6 +47,7 @@ function accepter(type,id) {
           // Remove "active" class from all elements
             elements_1.classList.remove("active");
             elements_3.classList.remove("active");
+            elements_4.classList.remove("active");
           elements_2.classList.add("active");
         });
 
@@ -53,5 +55,15 @@ function accepter(type,id) {
           // Remove "active" class from all elements
             elements_1.classList.remove("active");
             elements_2.classList.remove("active");
+            elements_4.classList.remove("active");
           elements_3.classList.add("active");
         });
+
+        elements_4.addEventListener("click", function() {
+          // Remove "active" class from all elements
+            elements_1.classList.remove("active");
+            elements_2.classList.remove("active");
+            elements_3.classList.remove("active");
+          elements_4.classList.add("active");
+        });
+
