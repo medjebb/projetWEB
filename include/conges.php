@@ -32,6 +32,11 @@ class conge
         $_dba->query("Select * from conge ");
         return $_dba->resultSet();
     }
+    public static function getById($id){
+        $_dba = new Dbaccess(); 
+        $_dba->query('Select * from conge where idEmploye="'.$id.'"');
+        return $_dba->resultSet();
+    }
     public static function getAll_enCours(){
         $_dba = new Dbaccess(); 
         $_dba->query("Select * from conge where status=2");

@@ -187,72 +187,57 @@
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Demandes Conge</h1>
-    <a style="background-color: #ff5e37;" href="EmpAddConge.php" class="text-light d-none d-sm-inline-block btn btn-sm shadow-sm"><i
-                                class="fa fa-plus fa-sm text-white-50"></i> Demander Conge</a>
+    <h1 class="h3 mb-0 text-gray-800">Demander Conge</h1>
 </div>
 
 <!-- data -->
-<div class="card text-center">
-    <div class="card-body">
-        <!-- <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a> -->
-        <div class="card-body">
-        <div class="table-responsive">
-            <table  class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Type de conge</th>
-                        <th>Date de debut</th>
-                        <th>Date de fin</th>
-                        <th>Reponse</th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th>ID</th>
-                        <th>Type de conge</th>
-                        <th>Date de debut</th>
-                        <th>Date de fin</th>
-                        <th>Reponse</th>
-                    </tr>
-                </tfoot>
-                <tbody  >
-                <?php
-                    //  <td><a href='RHupdateentreprise.php?idEntreprise=".$entreprise['idEntreprise']."&nomEntreprise=".$entreprise['nomEntreprise']."&address=".$entreprise['address']."&createdBy=".$entreprise['createdBy']."&createDate=".$entreprise['createDate']."' class='btn btn-warning btn-circle btn-sm'><i class='fas fa-exclamation-triangle'></i></a></td>
-                    //  <td><a href='include/deleteentreprise.php?idEntreprise=".$entreprise['idEntreprise']."' class='btn btn-danger btn-circle btn-sm'><i class='fas fa-trash'></i></a></td>
-                    require_once('include/conges.php');
-                    //require_once('include/employe.php');
-                    $Conge = conge::getById($_SESSION['id']);
+<div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold " style="color: #ff5e37;">Entrer les Informations</h6>
+                        </div>
+                        <div class="card-body">
+                            <form  action="include/confirmentreprise.php" enctype="multipart/form-data" method="post">
+                                <div class="form-group row">
+                                    <div class="col-6">
+                                        <div class="form-group row col-6">
+                                            <label for="dateF">Date de debut de conge :</label>
+                                            <input type="date" class="me-4  form-control form-control-user" id="dateF"
+                                                placeholder="Date de debut de conge" name="nomEntreprise" required>
+                                        </div>
+                                        <div class=" form-group row col-6">
+                                            <label for="dateF">Date de fin de conge :</label>
+                                            <input type="date" class="me-4  form-control form-control-user" id="dateF"
+                                                placeholder="Date de debut de conge" name="nomEntreprise" required>
+                                        </div>
+                                     </div>
 
-                    foreach($Conge as $cng){
-                        echo "<tr class=\"\">
-                                <td class=\"\">".$cng['idConge']."</td>
-                                <td class=\"\">".$cng['typeConge']."</td>
-                                 <td >".$cng['DateDebut']."</td>
-                                 <td >".$cng['DateRetour']."</td>";
-                                 if ($cng['status']==2) {
-                                    echo '<td class="fw-bold text-secondary">En cours</td>';
-                                 }
-                                 if ($cng['status']==1) {
-                                    echo '<td class="fw-bold text-success">Accepter</td>';
-                                 }
-                                 if ($cng['status']==0)
-                                 {
-                                    echo '<td class="fw-bolder text-danger">refuser</td>';
-                                 }     
-                            echo "</tr>";
-                    }
+                                    <div class="col-6">
+                                        <div class="form-group row">
+                                        <label class="ml-4 fs-4" for="dateF">Type de conge :</label>
+                                            <div class="ml-4 form-check  col-12">
+                                                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
+                                                <label class="form-check-label" for="credit">Le conge annuel</label>
+                                            </div>
+                                            <div class="ml-4 form-check col-12">
+                                                <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
+                                                <label class="form-check-label" for="debit">Le conge maladie</label>
+                                            </div>
+                                            <div class="ml-4 form-check col-12">
+                                                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
+                                                <label class="form-check-label" for="paypal">Le conge paye</label>
+                                            </div>
+                                            <div class="ml-4 form-check col-12">
+                                                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
+                                                <label class="form-check-label" for="paypal">Le conge maternite</label>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                </div>
 
-                    ?>
-                </tbody>
-                
-            </table>
-        </div>
-    </div>
-    </div>
+                                <input style="background-color: #ff5e37;" type="submit" class ="text-light btn btn-user btn-block" value="Ajouter l'entreprise" name='addentreprise'>
+                            </form>
+                        </div>
+                    </div>
     
 </div>
 
