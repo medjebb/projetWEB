@@ -1,16 +1,17 @@
 
 <?php
 
-require_once('C:\wamp64\www\projetWEB\include\dbaccess.php');
+require_once('C:\xampp\htdocs\projetWEB\include\dbaccess.php');
 
 $type = intval($_GET['type']);
 
 $id = intval($_GET['id']);
 
-require_once('C:\wamp64\www\projetWEB\include\reclamation.php');
-require_once('C:\wamp64\www\projetWEB\include\employe.php');
-require_once('C:\wamp64\www\projetWEB\include\HeureSup.php');
-require_once('C:\wamp64\www\projetWEB\include\avance.php');
+require_once('C:\xampp\htdocs\projetWEB\include\reclamation.php');
+require_once('C:\xampp\htdocs\projetWEB\include\employe.php');
+require_once('C:\xampp\htdocs\projetWEB\include\HeureSup.php');
+require_once('C:\xampp\htdocs\projetWEB\include\avance.php');
+require_once('C:\xampp\htdocs\projetWEB\include\conges.php');
 
 $rst=reclamation::accepter($id);
 
