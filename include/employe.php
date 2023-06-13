@@ -1,6 +1,11 @@
 <?php
 require_once('dbaccess.php');
 
+function genererMotDePasse($longueur) {
+    $bytes = random_bytes($longueur);
+    $motDePasse = bin2hex($bytes);
+    return $motDePasse;
+}
 class Employe{
 
     private  $nom;
@@ -26,11 +31,13 @@ class Employe{
     private  $identreprise;
     private  $dba;
 
-    public function __construct($nom,$prenom,$email,$password,$tel,$sexe,$role,$address,$image,$diplome,$datenaissance,$datecreation,$createur,$salairedebase,$nbrenfants,$dateembauche,$cnss,$amo,$igr,$cimr,$identreprise){
+    private  $RIB;
+
+    public function __construct($nom,$prenom,$email,$tel,$sexe,$role,$address,$image,$diplome,$datenaissance,$salairedebase,$nbrenfants,$dateembauche,$cnss,$amo,$igr,$cimr,$identreprise,$RIB){
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->email = $email;
-        $this->password = $password;
+        $this->password = genererMotDePasse(8);
         $this->tel = $tel;
         $this->sexe = $sexe;
         $this->role = $role;
@@ -38,16 +45,18 @@ class Employe{
         $this->image = $image;
         $this->diplome = $diplome;
         $this->datenaissance = $datenaissance;
-        $this->datecreation = $datecreation;
-        $this->createur = $createur;
-        $this->salairedebase = $salairedebase;
-        $this->nbrenfants = $nbrenfants;
+        $this->datecreation = date('Y-m-d');
+        $idcreateur=intval($_SESSION['id']);
+        $this->createur=$idcreateur;
+        $this->salairedebase =floatval($salairedebase);
+        $this->nbrenfants =intval($nbrenfants);
         $this->dateembauche = $dateembauche;
         $this->cnss = $cnss;
         $this->amo = $amo;
         $this->igr = $igr;
         $this->cimr = $cimr;
-        $this->identreprise = $identreprise;
+        $this->identreprise =intval($identreprise);
+        $this->RIB = intval($RIB);
     }
 
     public static function countbyemail($email,$password){
@@ -84,13 +93,13 @@ class Employe{
         return $_dba->resultSet();
     }
 
+    public function save(){
+        $_dba = new Dbaccess();
+        $_dba->query('INSERT INTO employe (Nom, Prenom, Email, Password, Tel, sexe, role, address, Image, Diplome, DateNaissance, DateCreation, idCreateur, SalairedeBase, NbEnfants, DateEmbauche, numCNSS, numAmo, numIGR, numCIMR, idEntreprise, RIB) VALUES ("'.$this->nom.'", "'.$this->prenom.'", "'.$this->email.'", "'.$this->password.'", "'.$this->tel.'", "'.$this->sexe.'", "'.$this->role.'", "'.$this->address.'", "'.$this->image.'", "'.$this->diplome.'", "'.$this->datenaissance.'", "'.$this->datecreation.'", "'.$this->createur.'", "'.$this->salairedebase.'", "'.$this->nbrenfants.'", "'.$this->dateembauche.'", "'.$this->cnss.'", "'.$this->amo.'", "'.$this->igr.'", "'.$this->cimr.'", "'.$this->identreprise.'", "'.$this->RIB.'")');
 
-    /*public function save(){
-        $_dba = new Dbaccess(); 
-        $_dba->query('INSERT INTO employe VALUES()');
         $_dba->execute();
         return 0;
-    }*/
+    }
 
     public static function delete($id){
         $_dba = new Dbaccess();
@@ -99,12 +108,13 @@ class Employe{
         return 0;
     }
 
-    /*public function update($id){
+    public function update($id){
         $_dba = new Dbaccess(); 
-        $_dba->query('UPDATE employe set ');
+        $_dba->query('UPDATE employe SET Email = "'. $this->email .'", Password = "'. $this->password .'", Tel = "'. $this->tel .'", role = "'. $this->role .'", address = "'. $this->address .'", Image = "'. $this->image .'", SalairedeBase = "'. $this->salairedebase .'", NbEnfants = "'. $this->nbrenfants .'", numCNSS = "'. $this->cnss .'", numAMO = "'. $this->amo .'", numIGR = "'. $this->igr .'", numCIMR = "'. $this->cimr .'", RIB = "'. $this->RIB .'" WHERE idEmploye = "'.$id.'"');
+
         $_dba->execute();
         return 0;
-    }*/
+    }
 
 };
 

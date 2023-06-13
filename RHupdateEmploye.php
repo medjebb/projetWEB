@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>Mise à jour Employe</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -52,7 +52,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="RHhome.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Tableau de Bord</span></a>
             </li>
 
             <!-- Divider -->
@@ -74,7 +74,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="RHverfiy.php">
                     <i class="fa fa-check-square"></i>
-                    <span>Verifié</span></a>
+                    <span>Vérifié</span></a>
             </li>
 
             <!-- Divider -->
@@ -141,7 +141,7 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Se Déconnecter
+                                    Se déconnecter
                                 </a>
                             </div>
                         </li>
@@ -150,68 +150,101 @@
 
                 </nav>
                 <!-- End of Topbar -->
+
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Gestion des entreprises</h1>
-                        <a href="RHaddentreprise.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fa fa-plus fa-sm text-white-50"></i> Ajouter une entreprise</a>
+                        <h1 class="h3 mb-0 text-gray-800">Mise à Jour Employé</h1>
                     </div>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Entreprise</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Entrer les Informations</h6>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Nom</th>
-                                            <th>Address</th>
-                                            <th>Createur</th>
-                                            <th>Date Creation</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Nom</th>
-                                            <th>Address</th>
-                                            <th>Createur</th>
-                                            <th>Date Creation</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                    <?php
-                                        require_once('include/entreprise.php');
+                            <form  action="include/confirmeEmploye.php" enctype="multipart/form-data" method="post">
 
-                                        $entreprises = Entreprise::getAll();
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="hidden" value="<?php echo $_GET['idEmploye'];?>" name="idEmploye" required>
+                                        Email:
+                                        <input type="email" class="form-control form-control-user" id="exampleFirstName" value="<?php echo $_GET['Email'];?>" name="Email" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                      Tel:
+                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                            value="<?php echo $_GET['Tel'];?>" name="Tel" required>
+                                    </div>
+                                </div>
 
-                                        foreach($entreprises as $entreprise){
-                                            echo "<tr>
-                                                    <td>".$entreprise['idEntreprise']."</td>
-                                                     <td>".$entreprise['nomEntreprise']."</td>
-                                                     <td>".$entreprise['address']."</td>
-                                                     <td>".$entreprise['createdBy']."</td>
-                                                     <td>".$entreprise['createDate']."</td>
-                                                     <td><a href='RHupdateentreprise.php?idEntreprise=".$entreprise['idEntreprise']."&nomEntreprise=".$entreprise['nomEntreprise']."&address=".$entreprise['address']."&createdBy=".$entreprise['createdBy']."&createDate=".$entreprise['createDate']."' class='btn btn-warning btn-circle btn-sm'><i class='fas fa-exclamation-triangle'></i></a></td>
-                                                     <td><a href='include/deleteentreprise.php?idEntreprise=".$entreprise['idEntreprise']."' class='btn btn-danger btn-circle btn-sm'><i class='fas fa-trash'></i></a></td>
-                                                </tr>";
-                                        }
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                    Adresse:
+                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                            value="<?php echo $_GET['address'];?>" name="address" required> 
+                                    </div>
+                                    <div class="col-sm-6">
+                                    <label for="formFile"  style="font-family:verdana;margin-left:9px;font-size:15px;color:#909090">  Choisir une image :</label>
+                                    <input class="form-control" type="file" value="<?php echo $_GET['address'];?>" id="formFile" style="color:gray;" name="image"> 
+                                    </div>
+                                </div>
 
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        role:
+                                    <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                            value="<?php echo $_GET['role'];?>" name="role" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        Salaire de Base:
+                                    <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                            value="<?php echo $_GET['SalairedeBase'];?>" name="SalairedeBase" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        Nombre Enfants: 
+                                    <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                            value="<?php echo $_GET['NbEnfants'];?>" name="NbEnfants" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        Numero CNSS:
+                                    <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                            value="<?php echo $_GET['numCNSS'];?>" name="numCNSS" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                    Numero AMO:
+                                    <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                            value="<?php echo $_GET['numAmo'];?>" name="numAmo" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                    Numero IGR:
+                                    <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                            value="<?php echo $_GET['numIGR'];?>" name="numIGR" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                Numero CIMR:
+                                <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                            value="<?php echo $_GET['numCIMR'];?>" name="numCIMR" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                    Numero RIB:
+                                    <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                            value="<?php echo $_GET['RIB'];?>" name="RIB" required>
+                                    </div>
+                                </div>
+                                <input type="submit" class ="btn btn-primary btn-user btn-block" value="Mise à Jour Employe" name='updateEmploye'>
+                            </form>
                         </div>
                     </div>
 
@@ -242,8 +275,8 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-     <!-- Logout Modal-->
-     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
         <div class="modal-content">

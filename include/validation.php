@@ -2,18 +2,16 @@
 session_start();
 require_once('employe.php');
 
-
 if(isset($_POST['login'])){
 
     $email = $_POST['email'];
     $password = $_POST['password'];
     $count = Employe::countbyemail($email,$password);
- 
-    echo "Bonjour !!";
 
     if($count == 1){
         $employe = Employe::getOnebyemail($email,$password);
-        if($employe['role'] == "RH"){
+        if($employe['role'] == "RH")
+        {
             $_SESSION['id'] = $employe['idEmploye'];
             $_SESSION['nom'] = $employe['Nom'];
             $_SESSION['prenom'] = $employe['Prenom'];
@@ -40,9 +38,11 @@ if(isset($_POST['login'])){
             else header('Location:' .$_SESSION['redirect']);*/
         }
         
-        
     }
-    else echo "Erreur Count !!";
+    else
+    {
+        header('Location:login.php');
+    }
 
 }
 

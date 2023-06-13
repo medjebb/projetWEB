@@ -4,7 +4,7 @@
         private $_dbHost = 'localhost';
         private $_dbUser = 'root';
         private $_dbPass = '';
-        private $_dbName = 'projweb';
+        private $_dbName = 'web';
 
         private $_statement;
         private $_dbHandler;
@@ -15,7 +15,6 @@
             
             try {
                 $this->_dbHandler = new PDO($conn, $this->_dbUser, $this->_dbPass); //Mysqli = sql injection
-                echo "réussie";
             } catch (PDOException $e) {
                 $this->_error = $e->getMessage();
                 echo $this->_error;
@@ -28,7 +27,8 @@
         }
 
         //Execute the prepared statement
-        public function execute() {
+        public function execute() 
+        {
             return $this->_statement->execute();
         }
 
@@ -49,5 +49,4 @@
             return $this->_statement->rowCount();
         }
     }
-    
 ?>

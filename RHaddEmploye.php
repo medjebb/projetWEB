@@ -28,7 +28,7 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styleFormEmploye.css">
-</head>
+    </head>
 
 <body id="page-top">
 
@@ -36,7 +36,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion w-30" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="RHhome.php">
@@ -53,7 +53,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="RHhome.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Tableau de Bord</span></a>
             </li>
 
             <!-- Divider -->
@@ -67,15 +67,15 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="RHEmploye.php">
                     <i class="fa fa-male"></i>
                     <span>Employe</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="RHverfiy.php">
                     <i class="fa fa-check-square"></i>
-                    <span>Verify</span></a>
+                    <span>Vérifié</span></a>
             </li>
 
             <!-- Divider -->
@@ -91,9 +91,6 @@
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
-
-
             <!-- Main Content -->
             <div id="content">
 
@@ -144,7 +141,7 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    Se Déconnecter
                                 </a>
                             </div>
                         </li>
@@ -165,12 +162,11 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Entrer les informations Personnelles</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Entrer les informations sur Employé</h6>
                         </div>
- <!--kkkkkkkkkkkkkkkkkkkkkkkFIIIIIIRSTTTTTT--> 
 
  <!-- MultiStep Form -->
-<div class="container-fluid" id="grad1">
+<div class="container-fluid bg-gradient-primary" id="" >
     <div class="row justify-content-center mt-0">
         <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
             <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
@@ -178,10 +174,11 @@
                 <p>Remplissez tous les champs du formulaire pour passer à l'étape suivante </p>
                 <div class="row">
                     <div class="col-md-12 mx-0">
-                        <form id="msform">
+                        <form id="msform" method="post" action="include/confirmeEmploye.php">
                             <!-- progressbar -->
                             <ul id="progressbar">
-                                <li class="active" id="personal"><strong>Personnel</strong></li>
+                            <li class="active" id="personal"><strong>Personnel</strong></li>
+                             
                                 <li id="professionnel"><strong>Professionnel</strong></li>
                                 <li id="couvertureSociale"><strong>Couverture Sociale</strong></li>
                                 <li id="confirm"><strong>Finir</strong></li>
@@ -189,79 +186,57 @@
                             <!-- fieldsets -->
                             <fieldset>
                                 <div class="form-card">
-                                    <h2 class="fs-title">Information Personnel</h2>
+                                    <h2 class="fs-title">Informations Personnelles</h2>
                                     <input type="text" name="prenom" placeholder="Prenom"/>
                                     <input type="text" name="nom" placeholder="Nom"/>
-                                    <input type="email" name="email" placeholder="Email Id"/>
-                                                                                                                                                                   
-                                    <input type="password" name="pwd" placeholder="Password"/>
-                                    <input type="password" name="cpwd" placeholder="Confirm Password"/>
+                                    <div>
+                                            <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                                placeholder="Date de Naissance" name="DateNaissance" onfocus="(this.type='date')" required>
+                                    </div>
+                                    <input type="email"  name="email"     placeholder="Email Id"/>
+                                    <input type="phone"  name="tel"       placeholder="Téléphone"/>
+                                    <input type="adress" name="adress"    placeholder="Adresse"/>
+                                    <input type="text"   name="nbEnfant"  placeholder="Nombre d'Enfants"/>
+                                    <label for="formFile" style="color:black; font-family:times new roman; font-size:17px;margin-left:9px;">  Choisir une image :</label>
+                                    <input class="form-control" type="file" id="formFile" style="color:gray;" name="image"> 
+                                    <select name="sexe" id="" style="color:gray;" >
+                                        <option value="Femme" style="color:black;" selected>Femme</option>
+                                        <option value="Homme" style="color:black;">Homme</option>
+                                    </select>                                                                                                         
                                 </div>
-                                <input type="button" name="next" class="next action-button" value="Next Step"/>
+                                <input type="button" name="next" class="next action-button" value="Suivant"/>
                             </fieldset>
                             <fieldset>
                                 <div class="form-card">
-                                    <h2 class="fs-title">Personal Information</h2>
-                                    <input type="text" name="fname" placeholder="First Name"/>
-                                    <input type="text" name="lname" placeholder="Last Name"/>
-                                    <input type="text" name="phno" placeholder="Contact No."/>
-                                    <input type="text" name="phno_2" placeholder="Alternate Contact No."/>
+                                    <h2 class="fs-title">Informations Professionnelles</h2>
+                                    <input type="text" name="diplome" placeholder="Diplome"/>
+                                    <input type="text" name="salaireBase" placeholder="Salaire de Base"/>
+                                    <input type="text" name="rib" placeholder="RIB"/>
+                                    <div class="">
+                                            <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                                placeholder="Date d'Embauche" name="DateEmbauche" onfocus="(this.type='date')" required>
+                                    </div>
+                                    <input type="text" name="idEntreprise" placeholder="Identificateur Entreprise "/>
                                 </div>
-                                <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                                <input type="button" name="next" class="next action-button" value="Next Step"/>
+                                <input type="button" name="previous" class="previous action-button-previous" value="Précédent"/>
+                                <input type="button" name="next" class="next action-button" value="Suivant"/>
                             </fieldset>
                             <fieldset>
                                 <div class="form-card">
-                                    <h2 class="fs-title">Payment Information</h2>
-                                    <div class="radio-group">
-                                        <div class='radio' data-value="credit"><img src="https://i.imgur.com/XzOzVHZ.jpg" width="200px" height="100px"></div>
-                                        <div class='radio' data-value="paypal"><img src="https://i.imgur.com/jXjwZlj.jpg" width="200px" height="100px"></div>
-                                        <br>
-                                    </div>
-                                    <label class="pay">Card Holder Name*</label>
-                                    <input type="text" name="holdername" placeholder=""/>
-                                    <div class="row">
-                                        <div class="col-9">
-                                            <label class="pay">Card Number*</label>
-                                            <input type="text" name="cardno" placeholder=""/>
-                                        </div>
-                                        <div class="col-3">
-                                            <label class="pay">CVC*</label>
-                                            <input type="password" name="cvcpwd" placeholder="***"/>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <label class="pay">Expiry Date*</label>
-                                        </div>
-                                        <div class="col-9">
-                                            <select class="list-dt" id="month" name="expmonth">
-                                                <option selected>Month</option>
-                                                <option>January</option>
-                                                <option>February</option>
-                                                <option>March</option>
-                                                <option>April</option>
-                                                <option>May</option>
-                                                <option>June</option>
-                                                <option>July</option>
-                                                <option>August</option>
-                                                <option>September</option>
-                                                <option>October</option>
-                                                <option>November</option>
-                                                <option>December</option>
-                                            </select>
-                                            <select class="list-dt" id="year" name="expyear">
-                                                <option selected>Year</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                                    <h2 class="fs-title">Couverture Sociale</h2>
+                                   
+                                    <input type="text" name="numCNSS" value=0 placeholder="Numero CNSS"/>
+                                    <input type="text" name="numAmo"   value=0 placeholder="Numero AMO"/>
+                                    <input type="text" name="numIGR"  value=0 placeholder="Numero IGR"/>
+                                    <input type="text" name="numCIMR" value=0 placeholder="Numero CIMR"/>
+                                  
                                 </div>
-                                <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                                <input type="button" name="make_payment" class="next action-button" value="Confirm"/>
+                                <input type="button" name="previous" class="previous action-button-previous" value="Précédent"/>
+                                <input type="submit" name="addEmploye" class="next action-button" value="Confirmer"/>
                             </fieldset>
                             <fieldset>
                                 <div class="form-card">
-                                    <h2 class="fs-title text-center">Success !</h2>
+                                    <h2 class="fs-title text-center">Réussie !</h2>
                                     <br><br>
                                     <div class="row justify-content-center">
                                         <div class="col-3">
@@ -271,7 +246,7 @@
                                     <br><br>
                                     <div class="row justify-content-center">
                                         <div class="col-7 text-center">
-                                            <h5>You Have Successfully Signed Up</h5>
+                                            <h5>L'ajout de l'employé est sauvegardé avec succès</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -282,15 +257,7 @@
             </div>
         </div>
     </div>
-</div>
-                       
- <!--kkkkkkkkkkkkkkkkkkkkkkk-->  </div>
-
-
-
-
-                    
-
+</div> </div>
 
 
                 </div>
@@ -299,23 +266,11 @@
             </div>
             <!-- End of Main Content -->
 
-
-
-
-
-
-
-
-
-
-
-
-
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; Your Website 2023</span>
                     </div>
                 </div>
             </footer>
@@ -332,25 +287,25 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     <!-- Logout Modal-->
+     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="include/logout.php">Logout</a>
-                </div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Prêt à partir?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à mettre fin à votre session en cours.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+                <a class="btn btn-primary" href="include/logout.php">se Déconnecter</a>
             </div>
         </div>
-    </div>
+        </div>
+        </div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
