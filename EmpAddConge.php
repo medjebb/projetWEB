@@ -215,21 +215,28 @@
                                         <div class="form-group row">
                                         <label class="ml-4 fs-4" for="dateF">Type de conge :</label>
                                             <div class="ml-4 form-check  col-12">
-                                                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
-                                                <label class="form-check-label" for="credit">Le conge annuel</label>
+                                                <input id="CongeAnnu" name="TypeConge" type="radio" class="form-check-input" checked="" required="">
+                                                <label class="form-check-label" for="CongeAnnu">Le conge annuel</label>
                                             </div>
                                             <div class="ml-4 form-check col-12">
-                                                <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
-                                                <label class="form-check-label" for="debit">Le conge maladie</label>
+                                                <input id="CongeMala" name="TypeConge" type="radio" class="form-check-input" required="">
+                                                <label class="form-check-label" for="CongeMala">Le conge maladie</label>
                                             </div>
                                             <div class="ml-4 form-check col-12">
-                                                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
-                                                <label class="form-check-label" for="paypal">Le conge paye</label>
+                                                <input id="congePaye" name="TypeConge" type="radio" class="form-check-input" required="">
+                                                <label class="form-check-label" for="congePaye">Le conge paye</label>
                                             </div>
                                             <div class="ml-4 form-check col-12">
-                                                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
-                                                <label class="form-check-label" for="paypal">Le conge maternite</label>
-                                            </div>                                            
+                                                <input id="congeMat" name="TypeConge" type="radio" class="form-check-input" required="">
+                                                <label class="form-check-label" for="congeMat">Le conge maternite</label>
+                                            </div>   
+                                            <div class="ml-4 col-12">
+                                            <div class="mb-3">
+  <label for="formFile" class="form-label">Default file input example</label>
+  <input class="form-control" type="file" id="formFile">
+</div>
+                                            </div>
+                                            </div> 
                                         </div>
                                     </div>
                                 </div>
