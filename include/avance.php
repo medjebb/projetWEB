@@ -8,9 +8,12 @@ class avance
     private $avance;
     private $idEmploye;
 
-    public function avance()
+    public function __construct($statut,$dateDemande,$avance,$idEmploye)
     {
-        # code...
+        $this->statut=$statut;
+        $this->dateDemande=$dateDemande;
+        $this->avance=$avance;
+         $this->idEmploye=$idEmploye;
     }
 
     public static function count(){
@@ -30,4 +33,12 @@ class avance
         $_dba->query("Select * from avance where statut=2");
         return $_dba->resultSet();
     }
+
+    public function save(){
+        $_dba = new Dbaccess(); 
+        $_dba->query('INSERT INTO avance (statut,dateDemande,avance,idEmploye) VALUES("'.$this->statut.'", "'.$this->dateDemande.'","'.$this->avance.'","'.$this->idEmploye.'")');
+        $_dba->execute();
+        return 0;
+    }
+
 }

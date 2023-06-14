@@ -20,7 +20,7 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-    
+
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -173,7 +173,7 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Logout
+                        Se Déconnecter
                     </a>
                 </div>
             </li>
@@ -187,73 +187,45 @@
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Demandes Conge</h1>
-    <a style="background-color: #ff5e37;" href="EmpAddAvance.php" class="text-light d-none d-sm-inline-block btn btn-sm shadow-sm"><i
-                                class="fa fa-plus fa-sm text-white-50"></i> Demander Conge</a>
+    <h1 class="h3 mb-0 text-gray-800">Demander Avance</h1>
 </div>
 
 <!-- data -->
-<div class="card text-center">
-    <div class="card-body">
-        <!-- <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a> -->
-        <div class="card-body">
-        <div class="table-responsive">
-            <table  class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>IdAvance</th>
-                        
-                        <th>Date de Deamnde</th>
-                        <th>Montant</th>
-                        <th>Statut</th>
-                        <th>Reponse</th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                    <th>IdAvance</th>
-                        
-                        <th>Date de Deamnde</th>
-                        <th>Montant</th>
-                        <th>Statut</th>
-                        <th>Reponse</th>
-                    </tr>
-                </tfoot>
-                <tbody  >
-                <?php
-                    //  <td><a href='RHupdateentreprise.php?idEntreprise=".$entreprise['idEntreprise']."&nomEntreprise=".$entreprise['nomEntreprise']."&address=".$entreprise['address']."&createdBy=".$entreprise['createdBy']."&createDate=".$entreprise['createDate']."' class='btn btn-warning btn-circle btn-sm'><i class='fas fa-exclamation-triangle'></i></a></td>
-                    //  <td><a href='include/deleteentreprise.php?idEntreprise=".$entreprise['idEntreprise']."' class='btn btn-danger btn-circle btn-sm'><i class='fas fa-trash'></i></a></td>
-                    require_once('include/avance.php');
-                    //require_once('include/employe.php');
-                    $avance = avance::getAll();
-                    foreach($avance as $avc){
-                        echo "<tr class=\"\">
-                                <td class=\"\">".$avc['idAvance']."</td>
-                                <td class=\"\">".$avc['dateDemande']."</td>
-                                 <td >".$avc['avance']."</td>
-                                 <td >".$avc['statut']."</td>";
-                                 if ($avc['statut']==2) {
-                                    echo '<td class="fw-bold text-secondary">En cours</td>';
-                                 }
-                                 if ($avc['statut']==1) {
-                                    echo '<td class="fw-bold text-success">Accepter</td>';
-                                 }
-                                 if ($avc['statut']==0)
-                                 {
-                                    echo '<td class="fw-bolder text-danger">refuser</td>';
-                                 }     
-                            echo "</tr>";
-                    }
 
-                    ?>
-                </tbody>
-                
-            </table>
-        </div>
-    </div>
-    </div>
+<div class="card shadow mb-4 " style="width:70%; margin-left:100px;margin-top:50px;">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold " style="color: #ff5e37;">Entrer les Informations</h6>
+                        </div>
+                        <div class="card-body">
+                            <form  action="include/confirmeAvance.php" enctype="multipart/form-data" method="post">
+                                   <div class="form-group row">
+                                    
+                                      <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <label for="dateF">Entrer montant d'avance (dhs) :</label>
+                                            <input type="text" class="form-control form-control-user" id="dateF"
+                                                placeholder="Montant" name="mad" required>
+                                        
+                                        <div class=" form-group row col-6">
+                                        <input type="hidden" class="form-control form-control-user" 
+                                                 name="idemploye" value="<?php echo $_SESSION['id']; ?>" >
+                                        </div>
+                                     </div>
+                                      </div>
+                                <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                     <input type="hidden">
+                                        </div>
+                                        <div class="col-sm-6" style="margin-left:0px;" >
+                                      <input style="background-color: #ff5e37;width:200px;margin-left:0px; " type="submit" class ="text-light btn btn-user btn-block" value="Demander Avance" name='addAvance'>
+                                   
+                                   </div>
+                                  
+                                </div>
+
+                                
+                            </form>
+                        </div>
+                    </div>
     
 </div>
 
