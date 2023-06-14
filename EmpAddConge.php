@@ -23,6 +23,8 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script> -->
 
 </head>
 
@@ -196,48 +198,37 @@
                             <h6 class="m-0 font-weight-bold " style="color: #ff5e37;">Entrer les Informations</h6>
                         </div>
                         <div class="card-body">
-                            <form  action="include/confirmentreprise.php" enctype="multipart/form-data" method="post">
+                            <form  action="include/AddDemandeConge.php" enctype="multipart/form-data" method="post">
                                 <div class="form-group row">
                                     <div class="col-6">
                                         <div class="form-group row col-6">
                                             <label for="dateF">Date de debut de conge :</label>
-                                            <input type="date" class="me-4  form-control form-control-user" id="dateF"
+                                            <input name="DateDebut" type="date" class="me-4  form-control form-control-user" id="dateF"
                                                 placeholder="Date de debut de conge" name="nomEntreprise" required>
                                         </div>
                                         <div class=" form-group row col-6">
                                             <label for="dateF">Date de fin de conge :</label>
-                                            <input type="date" class="me-4  form-control form-control-user" id="dateF"
+                                            <input name="DateRetour" type="date" class="me-4  form-control form-control-user" id="dateF"
                                                 placeholder="Date de debut de conge" name="nomEntreprise" required>
                                         </div>
                                      </div>
 
                                     <div class="col-6">
-                                        <div class="form-group row">
-                                        <label class="ml-4 fs-4" for="dateF">Type de conge :</label>
-                                            <div class="ml-4 form-check  col-12">
-                                                <input id="CongeAnnu" name="TypeConge" type="radio" class="form-check-input" checked="" required="">
-                                                <label class="form-check-label" for="CongeAnnu">Le conge annuel</label>
-                                            </div>
-                                            <div class="ml-4 form-check col-12">
-                                                <input id="CongeMala" name="TypeConge" type="radio" class="form-check-input" required="">
-                                                <label class="form-check-label" for="CongeMala">Le conge maladie</label>
-                                            </div>
-                                            <div class="ml-4 form-check col-12">
-                                                <input id="congePaye" name="TypeConge" type="radio" class="form-check-input" required="">
-                                                <label class="form-check-label" for="congePaye">Le conge paye</label>
-                                            </div>
-                                            <div class="ml-4 form-check col-12">
-                                                <input id="congeMat" name="TypeConge" type="radio" class="form-check-input" required="">
-                                                <label class="form-check-label" for="congeMat">Le conge maternite</label>
-                                            </div>   
-                                            <div class="ml-4 col-12">
-                                            <div class="mb-3">
-  <label for="formFile" class="form-label">Default file input example</label>
-  <input class="form-control" type="file" id="formFile">
-</div>
-                                            </div>
-                                            </div> 
+
+                                        <div class="form-group row col-6">
+                                        <label for="formFile" class="form-label">Type de Conge</label>
+                                        <select class="form-control form-control-user" name="typeConge" id="" style="color:gray;" >
+                                            <option value="Le conge paye">Le conge paye</option>
+                                            <option value="Le conge maternite">Le conge maternite</option>
+                                            <option value="Le conge maladie">Le conge maladie</option>
+                                            <option value="Le conge annuel">Le conge annuel</option>
+                                        </select>
                                         </div>
+                                        <div class=" form-group row col-6">
+                                            <label for="formFile" class="form-label">Justificatif :</label>
+                                            <input class="form-control form-control-file  form-control-user" type="file" id="formFile">
+                                        </div>
+
                                     </div>
                                 </div>
 

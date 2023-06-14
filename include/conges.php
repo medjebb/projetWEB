@@ -10,13 +10,13 @@ class conge
     private $idEmploye;
     private $status;
     
-    public function conge($typeConge, $DateDebut, $DateRetour,$idEmploye)
+    public function __construct($typeConge, $DateDebut, $DateRetour,$idEmploye)
     {
         $this->typeConge=$typeConge;
         $this->DateDebut=$DateDebut;
         $this->DateRetour=$DateRetour;
         $this->idEmploye=$idEmploye;
-        $this->status=0;
+        $this->status=2;
     }
 
 
@@ -42,4 +42,12 @@ class conge
         $_dba->query("Select * from conge where status=2");
         return $_dba->resultSet();
     }
+
+    public function save(){
+        $_dba = new Dbaccess(); 
+        $_dba->query('INSERT INTO conge VALUES(NULL, "'.$this->typeConge.'", "'.$this->DateDebut.'","'.$this->DateRetour.'","'.$this->status.'" ,"'.$this->idEmploye.'")');
+        $_dba->execute();
+        return 0;
+    }
+
 }

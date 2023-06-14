@@ -11,7 +11,7 @@ class reclamation
 
     public function reclamation($description,$objet,$idEmploye, $responsable,$date)
     {
-        $this->status= 0;
+        $this->status= 2;
         $this->objet=$objet;
         $this->description=$description;
         $this->idEmploye=$idEmploye;
