@@ -39,11 +39,7 @@ if(isset($_POST['login'])){
         }
         
     }
-    else
-    {
-        
-        header('Location:../login.php?errornum=1');
-    }
+    else header('Location:../login.php?errornum=1');
 
 }
 

@@ -72,9 +72,15 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="RHverfiy.php">
+                <a class="nav-link" href="RHverify.php">
                     <i class="fa fa-check-square"></i>
                     <span>Verifié</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="Employe.php">
+                    <i class="fa fa-check-square"></i>
+                    <span>Interface employe</span></a>
             </li>
 
             <!-- Divider -->
