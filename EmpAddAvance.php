@@ -117,9 +117,9 @@
 
         </ul>
         <!-- End of Sidebar -->
+        
 
-       <!-- Content Wrapper -->
-       <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content-wrapper" class="d-flex flex-column">
 
 <!-- Main Content -->
 <div id="content">
@@ -171,7 +171,7 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                Logout
+                Se Déconnecter
             </a>
         </div>
     </li>
@@ -185,50 +185,42 @@
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-<h1 class="h3 mb-0 text-gray-800">Demander Conge</h1>
+<h1 class="h3 mb-0 text-gray-800">Demander Avance</h1>
 </div>
 
 <!-- data -->
-<div class="card shadow mb-4">
+
+<div class="card shadow mb-4 " style="width:70%; margin-left:100px;margin-top:50px;">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold " style="color: #ff5e37;">Entrer les Informations</h6>
                 </div>
                 <div class="card-body">
-                    <form  action="include/AddDemandeConge.php" enctype="multipart/form-data" method="post">
-                        <div class="form-group row">
-                            <div class="col-6">
-                                <div class="form-group row col-6">
-                                    <label for="dateF">Date de debut de conge :</label>
-                                    <input name="DateDebut" type="date" class="me-4  form-control form-control-user" id="dateF"
-                                        placeholder="Date de debut de conge" name="nomEntreprise" required>
-                                </div>
+                    <form  action="include/confirmeAvance.php" enctype="multipart/form-data" method="post">
+                           <div class="form-group row">
+                            
+                              <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label for="dateF">Entrer montant d'avance (dhs) :</label>
+                                    <input type="text" class="form-control form-control-user" id="dateF"
+                                        placeholder="Montant" name="mad" required>
+                                
                                 <div class=" form-group row col-6">
-                                    <label for="dateF">Date de fin de conge :</label>
-                                    <input name="DateRetour" type="date" class="me-4  form-control form-control-user" id="dateF"
-                                        placeholder="Date de debut de conge" name="nomEntreprise" required>
+                                <input type="hidden" class="form-control form-control-user" 
+                                         name="idemploye" value="<?php echo $_SESSION['id']; ?>" >
                                 </div>
                              </div>
-
-                            <div class="col-6">
-
-                                <div class="form-group row col-6">
-                                <label for="formFile" class="form-label">Type de Conge</label>
-                                <select class="form-control form-control-user" name="typeConge" id="" style="color:gray;" >
-                                    <option value="Le conge paye">Le conge paye</option>
-                                    <option value="Le conge maternite">Le conge maternite</option>
-                                    <option value="Le conge maladie">Le conge maladie</option>
-                                    <option value="Le conge annuel">Le conge annuel</option>
-                                </select>
+                              </div>
+                        <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                             <input type="hidden">
                                 </div>
-                                <div class=" form-group row col-6">
-                                    <label for="formFile" class="form-label">Justificatif :</label>
-                                    <input class="form-control form-control-file  form-control-user" type="file" id="formFile">
-                                </div>
-
-                            </div>
+                                <div class="col-sm-6" style="margin-left:0px;" >
+                              <input style="background-color: #ff5e37;width:200px;margin-left:0px; " type="submit" class ="text-light btn btn-user btn-block" value="Demander Avance" name='addAvance'>
+                           
+                           </div>
+                          
                         </div>
 
-                        <input style="background-color: #ff5e37;" type="submit" class ="text-light btn btn-user btn-block" value="Ajouter l'entreprise" name='addentreprise'>
+                        
                     </form>
                 </div>
             </div>
@@ -275,6 +267,7 @@ aria-hidden="true">
 </div>
 </div>
 </div>
+
 
         <!-- Bootstrap core JavaScript-->
         <script src="vendor/jquery/jquery.min.js"></script>

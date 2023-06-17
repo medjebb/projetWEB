@@ -59,24 +59,30 @@
             <hr class="sidebar-divider">
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="RHEntreprise.php">
                     <i class="fa fa-building"></i>
                     <span>Entreprise</span></a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="RHEmploye.php">
                     <i class="fa fa-male"></i>
                     <span>Employe</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="RHverify.php">
                     <i class="fa fa-check-square"></i>
                     <span>Verify</span></a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="Employe.php">
+                    <i class="fa fa-check-square"></i>
+                    <span>Interface employe</span></a>
+            </li>
+            
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
