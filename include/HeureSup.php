@@ -35,6 +35,7 @@ class HeureSup
         $_dba->query("Select * from hs ");
         return $_dba->resultSet();
     }
+
     public static function getAll_enCours(){
         $_dba = new Dbaccess(); 
         $_dba->query("Select * from hs where status=2");
@@ -44,6 +45,21 @@ class HeureSup
     public function save(){
         $_dba = new Dbaccess(); 
         $_dba->query('INSERT INTO hs VALUES(null,"'. $this->status .'","'. $this->nbrheures .'","'. $this->datehs .'","'. $this->idEmploye .'")');
+        $_dba->execute();
+        return 0;
+    }
+
+    public static function accepter($id){
+        $status=1;
+        $_dba = new Dbaccess(); 
+        $_dba->query('UPDATE hs set status="'.$status.'" where idHs = "'.$id.'" ');
+        $_dba->execute();
+        return 0;
+    }
+    public static function refuser($id){
+        $status=0;
+        $_dba = new Dbaccess(); 
+        $_dba->query('UPDATE hs set status="'.$status.'" where idHs = "'.$id.'" ');
         $_dba->execute();
         return 0;
     }

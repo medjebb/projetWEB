@@ -73,4 +73,11 @@ class reclamation
         $_dba->execute();
         return 0;
     }
+    public static function refuser($id){
+        $status=0;
+        $_dba = new Dbaccess(); 
+        $_dba->query('UPDATE reclamation set status="'.$status.'" where idReclamation = "'.$id.'" ');
+        $_dba->execute();
+        return 0;
+    }
 }

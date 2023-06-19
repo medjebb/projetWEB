@@ -1,21 +1,19 @@
 
 <?php
 
-require_once('C:\xampp\htdocs\projetWEB\include\dbaccess.php');
-
-$type = intval($_GET['type']);
+require_once('C:\wamp64\www\projetWEB\include\dbaccess.php');
 
 $id = intval($_GET['id']);
+$type = intval($_GET['type']);
+require_once('C:\wamp64\www\projetWEB\include\reclamation.php');
+require_once('C:\wamp64\www\projetWEB\include\employe.php');
+require_once('C:\wamp64\www\projetWEB\include\HeureSup.php');
+require_once('C:\wamp64\www\projetWEB\include\avance.php');
 
-require_once('C:\xampp\htdocs\projetWEB\include\reclamation.php');
-require_once('C:\xampp\htdocs\projetWEB\include\employe.php');
-require_once('C:\xampp\htdocs\projetWEB\include\HeureSup.php');
-require_once('C:\xampp\htdocs\projetWEB\include\avance.php');
-require_once('C:\xampp\htdocs\projetWEB\include\conges.php');
 
-$rst=reclamation::accepter($id);
 
 if ($type==0) {
+    $rst=reclamation::accepter($id);
     echo "
     <thead>
         <tr>
@@ -50,8 +48,26 @@ if (count($reclamation) == 0) {
                  <td >".$employee['Nom']." ".$employee['Prenom']."</td>
                  <td >".$rec['objet']."</td>
                  <td >".$rec['date']."</td>
-                 <td ><a class=\"\" href=\"\"><button class=\"btn text-success\" ><i class=\"fa fa-check\"></i></button></a></td>
-                 <td ><a class=\"\" href=\"\"><button class=\"btn text-danger fs-1 text-danger fw-bold\">X</button></a></td>
+                 <td ><d class=\"\" ><button class=\"btn text-success\" onclick=\"accepter(0,".$rec['idReclamation'].")\" ><i class=\"fa fa-check\"></i></button></div></td>
+                     
+                 <div class=\"modal fade\" id=\"RecModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\"
+                     aria-hidden=\"true\">
+                     <div class=\"modal-dialog\" role=\"document\">
+                         <div class=\"modal-content\">
+                             <div class=\"modal-header\">
+                                 <h5 class=\"modal-title\" id=\"exampleModalLabel\">Description de la reclamation</h5>
+                                 <button class=\"close\" type=\"button\" data-dismiss=\"modal\" aria-label=\"Close\">
+                                     <span aria-hidden=\"true\">×</span>
+                                 </button>
+                             </div>
+                             <div class=\"modal-body\">
+                             <p>".$rec['description']."</p>
+                             </div>S
+
+                         </div>
+                     </div>
+                 </div>
+                 <td ><div><button class=\"btn text-danger fs-1 text-danger fw-bold\" onclick=\"refuser(0,".$rec['idReclamation'].")\">X</button></div></td>
             </tr>";
     }
     echo "</tbody>";
@@ -61,7 +77,7 @@ if (count($reclamation) == 0) {
 
 
 if ($type==1) {
-
+$rst = HeureSup::accepter($id);
     echo "
     <thead>
     <tr>
@@ -96,8 +112,8 @@ if ($type==1) {
                      <td >".$employee['Nom']." ".$employee['Prenom']."</td>
                      <td >".$H['nbrheures']."</td>
                      <td >".$H['datehs']."</td>
-                     <td ><a class=\"\" href=\"\"><button class=\"btn text-success\" ><i class=\"fa fa-check\"></i></button></a></td>
-                     <td ><a class=\"\" href=\"\"><button class=\"btn text-danger fs-1 text-danger fw-bold\">X</button></a></td>
+                     <td ><a class=\"\" href=\"\"><button class=\"btn text-success\" onclick=\"accepter(1,".$H['idHs'].")\"><i class=\"fa fa-check\"></i></button></a></td>
+                     <td ><a class=\"\" href=\"\"><button class=\"btn text-danger fs-1 text-danger fw-bold\" onclick=\"refuser(1,".$H['idHs'].")\" >X</button></a></td>
                 </tr>";
         }
         echo "</tbody>";
