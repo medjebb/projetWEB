@@ -60,22 +60,28 @@
             <hr class="sidebar-divider">
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="RHEntreprise.php">
                     <i class="fa fa-building"></i>
                     <span>Entreprise</span></a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="RHEmploye.php">
                     <i class="fa fa-male"></i>
                     <span>Employe</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="RHverfiy.php">
+                <a class="nav-link" href="RHverify.php">
                     <i class="fa fa-check-square"></i>
                     <span>Vérifié</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="Employe.php">
+                    <i class="fa fa-check-square"></i>
+                    <span>Interface employe</span></a>
             </li>
 
             <!-- Divider -->
@@ -166,8 +172,8 @@
                         </div>
 
  <!-- MultiStep Form -->
-<div class="container-fluid bg-gradient-primary bg-success" id="" >
-    <div class="row justify-content-center mt-0 bg-success">
+<div class="container-fluid" id="grad1">
+    <div class="row justify-content-center mt-0">
         <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
             <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
                 <h2><strong>Ajouter informations d'un employé</strong></h2>

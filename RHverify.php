@@ -59,7 +59,7 @@
             <hr class="sidebar-divider">
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item ">
+            <li class="nav-item">
                 <a class="nav-link" href="RHEntreprise.php">
                     <i class="fa fa-building"></i>
                     <span>Entreprise</span></a>
@@ -72,11 +72,15 @@
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link" href="RHverfiy.php">
+                <a class="nav-link" href="RHverify.php">
                     <i class="fa fa-check-square"></i>
                     <span>Verifié</span></a>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link" href="Employe.php">
+                    <i class="fa fa-check-square"></i>
+                    <span>Interface employe</span></a>
+            </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -155,9 +159,7 @@
                     
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Gestion des entreprises</h1>
-                        <a href="RHaddentreprise.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fa fa-plus fa-sm text-white-50"></i> Ajouter une entreprise</a>
+                        <h1 class="h3 mb-0 text-gray-800">Verification des reclamations</h1>
                     </div>
 
                     <!-- data -->
@@ -172,10 +174,7 @@
                                     <div style="cursor: pointer;" id="btn_verify_2" class="nav-link ">Heures Sup</div>
                                 </li>
                                 <li  class="nav-item"  onclick="showReclamation(2)">
-                                    <div style="cursor: pointer;" id="btn_verify_3" class="nav-link ">Demandes Avances</div>
-                                </li>
-                                <li  class="nav-item"  onclick="showReclamation(3)">
-                                    <div style="cursor: pointer;" id="btn_verify_4" class="nav-link ">Demandes Conges</div>
+                                    <div style="cursor: pointer;" id="btn_verify_3" class="nav-link ">Demande Avances</div>
                                 </li>
                             </ul>
                         </div>

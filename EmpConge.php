@@ -23,7 +23,7 @@
     
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -35,7 +35,7 @@
         <ul style="background-color: #ff5e37;" class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="RHhome.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="Employe.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fa fa-building"></i>
                 </div>
@@ -47,26 +47,13 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item ">
-                <a class="nav-link" href="RHhome.php">
+                <a class="nav-link" href="Employe.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="">
-                    <i class="fa fa-building"></i>
-                    <span>Visualiser</span></a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="">
-                    <i class="fa fa-male"></i>
-                    <span>Home</span></a>
-            </li>
 
             <li class="nav-item active">
                 <a class="nav-link collapsed " href="" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
@@ -109,6 +96,17 @@
                 </div>
             </li>
 
+            <?php if($_SESSION['role']=="RH"){
+            echo "
+                <li class='nav-item'>
+                    <a class='nav-link' href='RHhome.php'>
+                    <i class='fa fa-check-square'></i>
+                    <span>Interface RH</span></a>
+                </li>
+                ";
+            }
+            ?>
+            
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -166,7 +164,7 @@
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                     aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="profileadmin.php">
+                    <a class="dropdown-item" href="Empprofile.php">
                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                         Profile
                     </a>
@@ -185,22 +183,21 @@
 
         <div class="container-fluid">
 
-<!-- Page Heading -->
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Demandes Conge</h1>
-    <a style="background-color: #ff5e37;" href="EmpAddConge.php" class="text-light d-none d-sm-inline-block btn btn-sm shadow-sm"><i
-                                class="fa fa-plus fa-sm text-white-50"></i> Demander Conge</a>
-</div>
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Conge</h1>
+                        <a href="EmpAddHeuresSupp.php" Style="background-color: #ff5e37; border-color:#ff5e37 ;" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fa fa-plus fa-sm text-white-50" ></i>Ajouter Demande Conge</a>
+                    </div>
 
-<!-- data -->
-<div class="card text-center">
-    <div class="card-body">
-        <!-- <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a> -->
-        <div class="card-body">
-        <div class="table-responsive">
-            <table  class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold " style="color: #ff5e37;"> Demande de Conge</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                            <table  class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -249,21 +246,23 @@
                 </tbody>
                 
             </table>
-        </div>
-    </div>
-    </div>
-    
-</div>
+                            </div>
+                        </div>
+                    </div>
 
-
-
-</div>
-<!-- /.container-fluid -->
+                </div>
+                <!-- /.container-fluid -->
    
         <!-- End of Main Content -->
-
-        <!-- Footer -->
-        <!-- End of Footer -->
+            <!-- Footer -->
+             <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
 
     </div>
     <!-- End of Content Wrapper -->
@@ -312,7 +311,13 @@
         <!-- Page level custom scripts -->
         <script src="js/demo/chart-area-demo.js"></script>
         <script src="js/demo/chart-pie-demo.js"></script>
+   
+        <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
 </body>
 
 </html>

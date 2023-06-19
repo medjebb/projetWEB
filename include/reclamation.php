@@ -9,7 +9,7 @@ class reclamation
     private $responsable;
     private $date;
 
-    public function reclamation($description,$objet,$idEmploye, $responsable,$date)
+    public function __construct($description,$objet,$idEmploye, $responsable,$date)
     {
         $this->status= 2;
         $this->objet=$objet;

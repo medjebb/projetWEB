@@ -23,7 +23,6 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
 </head>
 
 <body id="page-top">
@@ -35,7 +34,7 @@
         <ul style="background-color: #ff5e37;" class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="RHhome.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="Employe.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fa fa-building"></i>
                 </div>
@@ -47,26 +46,13 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item ">
-                <a class="nav-link" href="RHhome.php">
+                <a class="nav-link" href="Employe.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="">
-                    <i class="fa fa-building"></i>
-                    <span>Visualiser</span></a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="">
-                    <i class="fa fa-male"></i>
-                    <span>Home</span></a>
-            </li>
 
             <li class="nav-item active">
                 <a class="nav-link collapsed " href="" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
@@ -109,6 +95,17 @@
                 </div>
             </li>
 
+            <?php if($_SESSION['role']=="RH"){
+            echo "
+                <li class='nav-item'>
+                    <a class='nav-link' href='RHhome.php'>
+                    <i class='fa fa-check-square'></i>
+                    <span>Interface RH</span></a>
+                </li>
+                ";
+            }
+            ?>
+            
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -119,114 +116,114 @@
 
         </ul>
         <!-- End of Sidebar -->
+        
 
-       <!-- Content Wrapper -->
-       <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content-wrapper" class="d-flex flex-column">
 
-        <!-- Main Content -->
-        <div id="content">
+<!-- Main Content -->
+<div id="content">
 
-            <!-- Topbar -->
-            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+    <!-- Topbar -->
+    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-        <!-- Sidebar Toggle (Topbar) -->
-        <form class="form-inline">
-            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                <i class="fa fa-bars"></i>
+<!-- Sidebar Toggle (Topbar) -->
+<form class="form-inline">
+    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+        <i class="fa fa-bars"></i>
+    </button>
+</form>
+
+<!-- Topbar Search -->
+<form
+    class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+    <div class="input-group">
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+            aria-label="Search" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button style="background-color: #ff5e37;" class="btn" type="button">
+                <i class="fas fa-search fa-sm text-light"></i>
             </button>
-        </form>
+        </div>
+    </div>
+</form>
 
-        <!-- Topbar Search -->
-        <form
-            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                    aria-label="Search" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button style="background-color: #ff5e37;" class="btn" type="button">
-                        <i class="fas fa-search fa-sm text-light"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
+<!-- Topbar Navbar -->
+<ul class="navbar-nav ml-auto">
 
-        <!-- Topbar Navbar -->
-        <ul class="navbar-nav ml-auto">
+    <div class="topbar-divider d-none d-sm-block"></div>
 
-            <div class="topbar-divider d-none d-sm-block"></div>
+    <!-- Nav Item - User Information -->
+    <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['nom']." ".$_SESSION['prenom']; ?></span>
+            <img class="img-profile rounded-circle"
+                src="img/pdp/<?php echo $_SESSION['image']; ?>">
+        </a>
+        <!-- Dropdown - User Information -->
+        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+            aria-labelledby="userDropdown">
+            <a class="dropdown-item" href="Empprofile.php">
+                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                Profile
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                Se Déconnecter
+            </a>
+        </div>
+    </li>
 
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['nom']." ".$_SESSION['prenom']; ?></span>
-                    <img class="img-profile rounded-circle"
-                        src="img/pdp/<?php echo $_SESSION['image']; ?>">
-                </a>
-                <!-- Dropdown - User Information -->
-                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                    aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="profileadmin.php">
-                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Profile
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Se Déconnecter
-                    </a>
-                </div>
-            </li>
+</ul>
 
-        </ul>
+</nav>
+<!-- End of Topbar -->
 
-        </nav>
-        <!-- End of Topbar -->
-
-        <div class="container-fluid">
+<div class="container-fluid">
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Demander Avance</h1>
+<h1 class="h3 mb-0 text-gray-800">Demander Avance</h1>
 </div>
 
 <!-- data -->
 
 <div class="card shadow mb-4 " style="width:70%; margin-left:100px;margin-top:50px;">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold " style="color: #ff5e37;">Entrer les Informations</h6>
-                        </div>
-                        <div class="card-body">
-                            <form  action="include/confirmeAvance.php" enctype="multipart/form-data" method="post">
-                                   <div class="form-group row">
-                                    
-                                      <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <label for="dateF">Entrer montant d'avance (dhs) :</label>
-                                            <input type="text" class="form-control form-control-user" id="dateF"
-                                                placeholder="Montant" name="mad" required>
-                                        
-                                        <div class=" form-group row col-6">
-                                        <input type="hidden" class="form-control form-control-user" 
-                                                 name="idemploye" value="<?php echo $_SESSION['id']; ?>" >
-                                        </div>
-                                     </div>
-                                      </div>
-                                <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                     <input type="hidden">
-                                        </div>
-                                        <div class="col-sm-6" style="margin-left:0px;" >
-                                      <input style="background-color: #ff5e37;width:200px;margin-left:0px; " type="submit" class ="text-light btn btn-user btn-block" value="Demander Avance" name='addAvance'>
-                                   
-                                   </div>
-                                  
-                                </div>
-
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold " style="color: #ff5e37;">Entrer les Informations</h6>
+                </div>
+                <div class="card-body">
+                    <form  action="include/confirmeAvance.php" enctype="multipart/form-data" method="post">
+                           <div class="form-group row">
+                            
+                              <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label for="dateF">Entrer montant d'avance (dhs) :</label>
+                                    <input type="text" class="form-control form-control-user" id="dateF"
+                                        placeholder="Montant" name="mad" required>
                                 
-                            </form>
+                                <div class=" form-group row col-6">
+                                <input type="hidden" class="form-control form-control-user" 
+                                         name="idemploye" value="<?php echo $_SESSION['id']; ?>" >
+                                </div>
+                             </div>
+                              </div>
+                        <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                             <input type="hidden">
+                                </div>
+                                <div class="col-sm-6" style="margin-left:0px;" >
+                              <input style="background-color: #ff5e37;width:200px;margin-left:0px; " type="submit" class ="text-light btn btn-user btn-block" value="Demander Avance" name='addAvance'>
+                           
+                           </div>
+                          
                         </div>
-                    </div>
-    
+
+                        
+                    </form>
+                </div>
+            </div>
+
 </div>
 
 
