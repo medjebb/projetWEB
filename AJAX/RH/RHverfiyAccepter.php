@@ -1,15 +1,14 @@
 
 <?php
 
-require_once('C:\wamp64\www\projetWEB\include\dbaccess.php');
+require_once('../../include/dbaccess.php');
 
 $id = intval($_GET['id']);
 $type = intval($_GET['type']);
-require_once('C:\wamp64\www\projetWEB\include\reclamation.php');
-require_once('C:\wamp64\www\projetWEB\include\employe.php');
-require_once('C:\wamp64\www\projetWEB\include\HeureSup.php');
-require_once('C:\wamp64\www\projetWEB\include\avance.php');
-
+require_once('../../include/reclamation.php');
+require_once('../../include/employe.php');
+require_once('../../include/HeureSup.php');
+require_once('../../include/conges.php');
 
 
 if ($type==0) {
@@ -112,8 +111,8 @@ $rst = HeureSup::accepter($id);
                      <td >".$employee['Nom']." ".$employee['Prenom']."</td>
                      <td >".$H['nbrheures']."</td>
                      <td >".$H['datehs']."</td>
-                     <td ><a class=\"\" href=\"\"><button class=\"btn text-success\" onclick=\"accepter(1,".$H['idHs'].")\"><i class=\"fa fa-check\"></i></button></a></td>
-                     <td ><a class=\"\" href=\"\"><button class=\"btn text-danger fs-1 text-danger fw-bold\" onclick=\"refuser(1,".$H['idHs'].")\" >X</button></a></td>
+                     <td ><div class=\"\" href=\"\"><button class=\"btn text-success\" onclick=\"accepter(1,".$H['idHs'].")\"><i class=\"fa fa-check\"></i></button></div></td>
+                     <td ><div class=\"\" href=\"\"><button class=\"btn text-danger fs-1 text-danger fw-bold\" onclick=\"refuser(1,".$H['idHs'].")\" >X</button></div></td>
                 </tr>";
         }
         echo "</tbody>";
@@ -122,14 +121,15 @@ $rst = HeureSup::accepter($id);
 }
 
 if ($type==2) {
-
+    $rst = conge::accepter($id);
     echo "
     <thead>
     <tr>
-    <th>ID</th>
+        <th>ID</th>
         <th>Employe</th>
-        <th>Montant</th>
-        <th>Date de la demande</th>
+        <th>Debut</th>
+        <th>Fin</th>
+        <th>Type de conge</th>
         <th>Accepter</th>
         <th>Refuser</th>
     </tr>
@@ -138,34 +138,35 @@ if ($type==2) {
     <tr>
         <th>ID</th>
         <th>Employe</th>
-        <th>Montant</th>
-        <th>Date de la demande</th>
+        <th>Debut</th>
+        <th>Fin</th>
+        <th>Type de conge</th>
         <th>Accepter</th>
         <th>Refuser</th>
     </tr>
 </tfoot>
     ";
-    $avance= avance::getAll_enCours();
-    if(count($avance)==0){
+    $conge= conge::getAll_enCours();
+    if(count($conge)==0){
         echo "<tr class=\"odd\"><td valign=\"top\" colspan=\"6\" class=\"dataTables_empty\">No matching records found</td></tr>";
     }else{
         echo "<tbody>";
-        foreach($avance as $AV){
-            $employee= Employe::getOne($AV['idEmploye']);
+        foreach($conge as $CG){
+            $employee= Employe::getOne($CG['idEmploye']);
             echo "<tr class=\"\">
-                    <td class=\"\">".$AV['idAvance']."</td>
+                    <td class=\"\">".$CG['idConge']."</td>
                      <td >".$employee['Nom']." ".$employee['Prenom']."</td>
-                     <td >".$AV['avance']."</td>
-                     <td >".$AV['dateDemande']."</td>
-                     <td ><a class=\"\" href=\"\"><button class=\"btn text-success\" ><i class=\"fa fa-check\"></i></button></a></td>
-                     <td ><a class=\"\" href=\"\"><button class=\"btn text-danger fs-1 text-danger fw-bold\">X</button></a></td>
+                     <td >".$CG['DateDebut']."</td>
+                     <td >".$CG['DateRetour']."</td>
+                     <td >".$CG['typeConge']."</td>
+                     <td ><div class=\"\" href=\"\"><button class=\"btn text-success\" onclick=\"accepter(2,".$CG['idConge'].")\"><i class=\"fa fa-check\"></i></button></div></td>
+                     <td ><div><button class=\"btn text-danger fs-1 text-danger fw-bold\" onclick=\"refuser(2,".$CG['idConge'].")\" >X</button></div></td>
+
                 </tr>";
         }
         echo "</tbody>";
     }
     
 }
-
-
 
 ?>

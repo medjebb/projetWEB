@@ -1,15 +1,15 @@
 
 <?php
 
-require_once('C:\wamp64\www\projetWEB\include\dbaccess.php');
+require_once('../../include/dbaccess.php');
 
 $type = intval($_GET['type']);
 
 
-require_once('C:\wamp64\www\projetWEB\include\reclamation.php');
-require_once('C:\wamp64\www\projetWEB\include\employe.php');
-require_once('C:\wamp64\www\projetWEB\include\HeureSup.php');
-require_once('C:\wamp64\www\projetWEB\include\avance.php');
+require_once('../../include/reclamation.php');
+require_once('../../include/employe.php');
+require_once('../../include/HeureSup.php');
+require_once('../../include/conges.php');
 
 if ($type==0) {
     echo "
@@ -121,7 +121,7 @@ if ($type==1) {
                      <td >".$employee['Nom']." ".$employee['Prenom']."</td>
                      <td >".$H['nbrheures']."</td>
                      <td >".$H['datehs']."</td>
-                     <td ><a class=\"\" href=\"\"><button class=\"btn text-success\" onclick=\"accepter(1,".$H['idHs'].")\"><i class=\"fa fa-check\"></i></button></a></td>
+                     <td ><div class=\"\" href=\"\"><button class=\"btn text-success\" onclick=\"accepter(1,".$H['idHs'].")\"><i class=\"fa fa-check\"></i></button></div></td>
                      <td ><div><button class=\"btn text-danger fs-1 text-danger fw-bold\" onclick=\"refuser(1,".$H['idHs'].")\" >X</button></div></td>
                      </tr>";
         }
@@ -131,7 +131,7 @@ if ($type==1) {
 }
 
 
-if ($type==3) {
+if ($type==2) {
 
     echo "
     <thead>
@@ -170,8 +170,9 @@ if ($type==3) {
                      <td >".$CG['DateDebut']."</td>
                      <td >".$CG['DateRetour']."</td>
                      <td >".$CG['typeConge']."</td>
-                     <td ><a class=\"\" href=\"\"><button class=\"btn text-success\" ><i class=\"fa fa-check\"></i></button></a></td>
-                     <td ><a class=\"\" href=\"\"><button class=\"btn text-danger fs-1 text-danger fw-bold\">X</button></a></td>
+                     <td ><div class=\"\" href=\"\"><button class=\"btn text-success\" onclick=\"accepter(2,".$CG['idConge'].")\"><i class=\"fa fa-check\"></i></button></div></td>
+                     <td ><div><button class=\"btn text-danger fs-1 text-danger fw-bold\" onclick=\"refuser(2,".$CG['idConge'].")\" >X</button></div></td>
+
                 </tr>";
         }
         echo "</tbody>";

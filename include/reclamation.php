@@ -46,6 +46,12 @@ class reclamation
         return $_dba->resultSet();
     }
 
+    public static function getById($id){
+        $_dba = new Dbaccess(); 
+        $_dba->query('Select * from reclamation where idEmploye="'.$id.'"');
+        return $_dba->resultSet();
+    }
+    
     public function save(){
         $_dba = new Dbaccess(); 
         $_dba->query('INSERT INTO reclamation VALUES(null,"'. $this->description .'","'. $this->idEmploye .'","'.$this->objet.'" ,"'. $this->responsable .'" ,"'.$this->date.'","'.$this->status.'")'); 

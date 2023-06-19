@@ -173,6 +173,12 @@
                                 <li  class="nav-item"  onclick="showReclamation(1)">
                                     <div style="cursor: pointer;" id="btn_verify_2" class="nav-link ">Heures Sup</div>
                                 </li>
+                                <li  class="nav-item"  onclick="showReclamation(2)">
+                                    <div style="cursor: pointer;" id="btn_verify_3" class="nav-link ">Conges</div>
+                                </li>
+                                <li  class="nav-item"  onclick="showReclamation(3)">
+                                    <div style="cursor: pointer;" id="btn_verify_4" class="nav-link ">Absence</div>
+                                </li>
                             </ul>
                         </div>
                         <div class="card-body">
