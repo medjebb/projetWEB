@@ -185,7 +185,7 @@
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Declarer Heures Supplementaires</h1>
+    <h1 class="h3 mb-0 text-gray-800">Declarer Reclamation</h1>
 </div>
 
 <!-- data -->
@@ -194,24 +194,35 @@
                             <h6 class="m-0 font-weight-bold " style="color: #ff5e37;">Entrer les Informations</h6>
                         </div>
                         <div class="card-body">
-                            <form  action="include/declarerHeuresSupp.php" enctype="multipart/form-data" method="post">
+                            <form  action="include/declarerReclamation.php" enctype="multipart/form-data" method="post">
                                 <div class="form-group row">
                                         <div class="form-group row col-6">
-                                            <label for="Datehs">Date des Heures Supplementaire :</label>
-                                            <input type="date" class="me-4  form-control form-control-user" id="dateF"
-                                                placeholder="Date des Heures Supplementaire " name="Datehs" required>
+                                            <label for="Daterec;">Date de la Reclamation :</label>
+                                            <input type="date" class="me-4  form-control form-control-user" id="exampleFirstName"
+                                                placeholder="Date de Reclamation " name="Daterec" required>
                                         </div>
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <label for="nombreheuresSupp">Nombre des Heures</label>
+                                    <label for="Objetrec">Objet de Reclamation :</label>
                                         <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="Nombre des Heures" name="nombreheuresSupp" required>
+                                            placeholder="Objet" name="Objetrec" required>
                                     </div>
-                                  
 
-                                    
                                 </div>
+                                <div class="form-group row">
+                                        <div class="form-group row col-6">
+                                        <label for="typeResp" class="form-label">Responsable :</label>
+                                            <select class="form-control form-control-user" name="typeResp" id="" style="color:gray;" >
+                                                <option value="0">Responsable de Ressources Humaines</option>
+                                                <option value="1">Responsable de paie</option>
+                                            </select>
+                                        </div>
+                                        <div class = "form-group">
+                                            <label for = "description" class="ml-3">Description :</label>
+                                            <textarea class = "form-control ml-3" cols="60" rows = "3" placeholder = "Description" name="description"></textarea>
+                                        </div>
 
-                                <input style="background-color: #ff5e37;" type="submit" class ="text-light btn btn-user btn-block" value="Declarer Heures Supplementaires" name='declarerHeuresSupp'>
+                                </div>
+                                <input style="background-color: #ff5e37;" type="submit" class ="text-light btn btn-user btn-block" value="Declarer Reclamation" name='declarerReclamation'>
                             </form>
                         </div>
                     </div>

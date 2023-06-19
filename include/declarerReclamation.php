@@ -1,15 +1,15 @@
 <?php
 
 session_start();
-require_once('HeureSup.php');
+require_once('reclamation.php');
 
-echo $_SESSION['id'] ;
-if(isset($_POST['declarerHeuresSupp'])){
+// echo $_SESSION['id'] ;
+if(isset($_POST['declarerReclamation'])){
     
-    $heuresSupp = new HeureSup($_POST['Daterec'],$_POST['nombreheuresSupp'],$_SESSION['id']);
+    $Reclamation = new reclamation($_POST['description'],$_POST['Objetrec'],$_SESSION['id'],$_POST['typeResp'],$_POST['Daterec']);
     
-    $heuresSupp->save();
-    header('location: ../EmpHeuresSupp.php');
+    $Reclamation->save();
+    header('location: ../EmpReclamation.php');
         
 }
 

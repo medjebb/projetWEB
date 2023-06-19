@@ -185,15 +185,15 @@
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Heures Supplementaires</h1>
-    <a href="EmpAddHeuresSupp.php" Style="background-color: #ff5e37; border-color:#ff5e37 ;" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-            class="fa fa-plus fa-sm text-white-50" ></i> Declarer Heures Supplementaires</a>
+    <h1 class="h3 mb-0 text-gray-800">Reclamation</h1>
+    <a href="EmpAddReclamation.php" Style="background-color: #ff5e37; border-color:#ff5e37 ;" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+            class="fa fa-plus fa-sm text-white-50" ></i> Declarer Reclamation</a>
 </div>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold " style="color: #ff5e37;">Declaration des Heures Supplementaires</h6>
+    <h6 class="m-0 font-weight-bold " style="color: #ff5e37;">Declaration d'une Reclamation</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -201,16 +201,18 @@
 <thead>
 <tr>
     <th>ID</th>
-    <th>Nombres des heures</th>
-    <th>Date </th>
+    <th>Objet </th>
+    <th>Date</th>
+    <th>Responsable</th>
     <th>Status</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
     <th>ID</th>
-    <th>Nombres des heures</th>
-    <th>Date </th>
+    <th>Objet </th>
+    <th>Date</th>
+    <th>Responsable</th>
     <th>Status</th>
 </tr>
 </tfoot>
@@ -218,28 +220,62 @@
 <?php
 //  <td><a href='RHupdateentreprise.php?idEntreprise=".$entreprise['idEntreprise']."&nomEntreprise=".$entreprise['nomEntreprise']."&address=".$entreprise['address']."&createdBy=".$entreprise['createdBy']."&createDate=".$entreprise['createDate']."' class='btn btn-warning btn-circle btn-sm'><i class='fas fa-exclamation-triangle'></i></a></td>
 //  <td><a href='include/deleteentreprise.php?idEntreprise=".$entreprise['idEntreprise']."' class='btn btn-danger btn-circle btn-sm'><i class='fas fa-trash'></i></a></td>
-require_once('include/HeureSup.php');
-//require_once('include/employe.php');
-$HeuresSupp = HeureSup::getById($_SESSION['id']);
-
-foreach($HeuresSupp as $hs){
+require_once('include/reclamation.php');
+$Reclamation = reclamation::getById($_SESSION['id']);
+foreach($Reclamation as $Rec){
     echo "<tr class=\"\">
-            <td class=\"\">".$hs['idHs']."</td>
-            <td class=\"\">".$hs['nbrheures']."</td>
-             <td >".$hs['datehs']."</td>";
-             if ($hs['status']==2) {
+            <td class=\"\">".$Rec['idReclamation']."</td>
+            <td> 
+            <div class=\"row\">
+            <div class=\"col-10\">".$Rec['objet']."</div>
+            
+            <div class=\"col-2\">
+           <a class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#".$Rec['idReclamation']."\">
+            <i class=\"fas fa-eye fa-sm fa-fw mr-2 text-gray-400\"></i>
+           </a>
+           </div>
+
+            </div>
+            </td>
+            <td >".$Rec['date']."</td>";
+
+            if($Rec['responsable']==0){
+    echo "<td >Responsable RH</td>";
+            }else{
+    echo "<td >Responsable de paie</td>";
+            }
+            
+             if ($Rec['status']==2) {
                 echo '<td class="fw-bold text-secondary">En cours</td>';
              }
-             if ($hs['status']==1) {
+             if ($Rec['status']==1) {
                 echo '<td class="fw-bold text-success">Accepter</td>';
              }
-             if ($hs['status']==0)
+             if ($Rec['status']==0)
              {
                 echo '<td class="fw-bolder text-danger">refuser</td>';
              }     
         echo "</tr>";
-}
+        echo '
+                                                <div class="modal fade" id='.$Rec['idReclamation'].' tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Description de la reclamation</h5>
+                                                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">×</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                            <p>'.$Rec['description'].'</p>
+                                                            </div>
 
+                                                        </div>
+                                                    </div>
+                                                </div>';
+
+}
 ?>
 </tbody>
 
