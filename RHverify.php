@@ -173,9 +173,6 @@
                                 <li  class="nav-item"  onclick="showReclamation(1)">
                                     <div style="cursor: pointer;" id="btn_verify_2" class="nav-link ">Heures Sup</div>
                                 </li>
-                                <li  class="nav-item"  onclick="showReclamation(2)">
-                                    <div style="cursor: pointer;" id="btn_verify_3" class="nav-link ">Demande Avances</div>
-                                </li>
                             </ul>
                         </div>
                         <div class="card-body">
@@ -231,8 +228,8 @@
                                                      </div>
                                                      </td>
                                                      <td >".$rec['date']."</td>
-                                                     <td ><d class=\"\" ><button class=\"btn text-success\" onclick=\"accepter(0,".$rec['idReclamation'].")\" ><i class=\"fa fa-check\"></i></button></div></td>
-                                                     <td ><a class=\"\" href=\"\"><button class=\"btn text-danger fs-1 text-danger fw-bold\">X</button></a></td>
+                                                     <td ><div class=\"\" ><button class=\"btn text-success\" onclick=\"accepter(0,".$rec['idReclamation'].")\" ><i class=\"fa fa-check\"></i></button></div></td>
+                                                     <td ><div><button class=\"btn text-danger fs-1 text-danger fw-bold\" onclick=\"refuser(0,".$rec['idReclamation'].")\" >X</button></div></td>
                                                 </tr>";
                                                 echo '
                                                 <div class="modal fade" id="RecModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
