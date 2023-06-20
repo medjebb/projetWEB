@@ -9,8 +9,7 @@ require_once('../../include/reclamation.php');
 require_once('../../include/employe.php');
 require_once('../../include/HeureSup.php');
 require_once('../../include/conges.php');
-
-
+require_once('../../include/absence.php');
 
 if ($type==0) {
     $rst=reclamation::refuser($id);
@@ -170,5 +169,61 @@ if ($type==2) {
     
 }
 
+
+
+if($type==4)
+{
+$rst=absence::refuser($id);
+
+echo '
+<div class="table-responsive">
+<table  class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <thead>
+<tr>
+<th>ID</th>
+    <th>Employe</th>
+    <th>nombres d\'heures</th>
+    <th>Date</th>
+    <th>justificatif</th>
+    <th>accepter</th>
+    <th>refuser</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+    <th>ID</th>
+    <th>Employe</th>
+    <th>nombres d\'heure</th>
+    <th>Date</th>
+    <th>justificatif</th>
+    <th>accepter</th>
+    <th>refuser</th>
+</tr>
+</tfoot>
+';
+
+$abs= absence::getAll_enAttente();
+
+
+if(count($abs)==0){
+    echo "<tr class=\"odd\"><td valign=\"top\" colspan=\"6\" class=\"dataTables_empty\">No matching records found</td></tr>";
+}else{
+    echo "<tbody>";
+    foreach($abs as $ab){
+        $employee= Employe::getOne($ab['idEmploye']);
+        echo "<tr class=\"\">
+                <td class=\"\">".$ab['idAbsence']."</td>
+                 <td >".$employee['Nom']." ".$employee['Prenom']."</td>
+                 <td >".$ab['nbrHeure']."</td>
+                 <td >".$ab['date']."</td>
+                 <td >".$ab['justification']."</td>
+                 <td ><div ><button class=\"btn text-success\" onclick=\"accepter(4,".$ab['idAbsence'].")\"><i class=\"fa fa-check\"></i></button></div></td>
+                 <td ><div><button class=\"btn text-danger fs-1 text-danger fw-bold\" onclick=\"refuser(4,".$ab['idAbsence'].")\" >X</button></div></td>
+
+                 </tr>";
+    }
+    echo "</tbody></div></table";
+}
+}
 
 ?>

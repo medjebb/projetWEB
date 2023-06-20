@@ -96,6 +96,12 @@
                 </div>
             </li>
 
+            <li class="nav-item active">
+                <a class="nav-link" href="EmpAbsences.php">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Absences</span></a>
+            </li>
+
             <?php if($_SESSION['role']=="RH"){
             echo "
                 <li class='nav-item'>
