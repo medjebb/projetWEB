@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 require_once('dbaccess.php');
 require_once('employe.php');
 require_once('absence.php');
@@ -11,8 +13,12 @@ $Abs= new absence($nbHeure,$employeAbs,$dateAbs);
 $Abs->save();
 
 echo '<div class="btn-group w-100" role="group" aria-label="Basic example">
-<button type="button" class="  btn btn-primary">Non Justifier</button>
-<button type="button" class="btn btn-primary ">En attente</button>
+<button type="button" class="  btn active_abs">Non Justifier</button>
+<button type="button" class="btn btn-primary ">En attente
+<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+'.absence::count_enAttent().'
+  </span></button>
+</button>
 <button type="button" class="btn btn-primary">Justifier</button>
 </div>';
 

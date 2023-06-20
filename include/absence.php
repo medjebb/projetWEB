@@ -31,6 +31,12 @@ class absence
         return $_dba->rowCount();
     }
 
+    public static function count_enAttent(){
+        $_dba = new Dbaccess();
+        $_dba->query("Select * from absence where status=2");
+        $_dba->execute();
+        return $_dba->rowCount();
+    }
     public static function getAll(){
         $_dba = new Dbaccess(); 
         $_dba->query("Select * from absence ");

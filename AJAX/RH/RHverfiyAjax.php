@@ -183,9 +183,22 @@ if ($type==2) {
 if($type==3 || $type==5)
 {
 echo '<div id="btn_abs" class="btn-group mb-4 w-100" role="group" aria-label="Basic example">
-<button onclick="showAbsence(3)" id="absNJ" type="button" class="  btn btn-primary">Non Justifier</button>
-<button onclick="showAbsence(4)" id="absT" type="button" class="btn btn-primary ">En attente</button>
-<button onclick="showAbsence(5)" id="absJ" type="button" class="btn btn-primary">Justifier</button>
+<button onclick="showAbsence(3)" id="absNJ" type="button" class="  btn ';
+if($type==3)
+echo "active_abs";
+else
+echo "btn-primary";
+ echo ' ">Non Justifier</button>
+<button onclick="showAbsence(4)" id="absT" type="button" class="btn btn-primary ">En attente
+<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+'.absence::count_enAttent().'
+  </span></button>
+<button onclick="showAbsence(5)" id="absJ" type="button" class="btn ';
+if($type==3)
+echo "btn-primary";
+else
+echo "active_abs";
+ echo ' ">Justifier</button>
 </div>';
 
 
@@ -237,8 +250,12 @@ if(count($abs)==0){
 if($type==4)
 {
     echo '<div id="btn_abs" class="btn-group mb-4 w-100" role="group" aria-label="Basic example">
-    <button onclick="showAbsence(3)" id="absNJ" type="button" class="  btn btn-primary">Non Justifier</button>
-    <button onclick="showAbsence(4)" id="absT" type="button" class="btn btn-primary ">En attente</button>
+    <button onclick="showAbsence(3)" id="absNJ" type="button" class="  btn btn-primary ">Non Justifier</button>
+    <button onclick="showAbsence(4)" id="absT" type="button" class="btn active_abs ">En attente
+    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    '.absence::count_enAttent().'
+  </span>
+    </button>
     <button onclick="showAbsence(5)" id="absJ" type="button" class="btn btn-primary">Justifier</button>
     </div>';
     

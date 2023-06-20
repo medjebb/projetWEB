@@ -7,6 +7,7 @@
 
 <head>
 
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,7 +27,13 @@
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
+    <style>
+        .active_abs{
+        color: #fff;
+        background-color: #15b97d;
+        border-color: #169b6b;
+        }
+    </style>
 </head>
 
 <body id="page-top">

@@ -191,8 +191,28 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
         <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <div class="d-sm-flex align-items-center justify-content-between mb-2">
             <h1 class="h3 mb-0 text-gray-800">Les Absences</h1>
+            <div>
+                <?php
+                if (isset($_SESSION['Abs_error'])) {
+                    echo '<div class="alert alert-danger" role="alert">
+                    '.$_SESSION['Abs_error'].'
+                  </div>';
+                  unset($_SESSION['Abs_error']);
+                }
+                
+                else
+                {
+                    if (isset($_SESSION['Abs_success'])) {
+                    echo '<div class="alert alert-info" role="alert">
+                    '.$_SESSION['Abs_success'].'
+                  </div>';
+                  unset($_SESSION['Abs_success']);
+                }
+                }
+                ?>
+            </div>
         </div>
 
         <!-- DataTales Example -->
@@ -239,7 +259,7 @@
                                         <div class=" form-group row col-12">
                                             <input  name="Abs_id" type="hidden"  value="'.$abs['idAbsence'].'" >
                                             <label for="formFile" class="form-label">Justificatif :</label>
-                                            <input name="fileAbs" class="form-control form-control-file  form-control-user" type="file" id="formFile">
+                                            <input name="fileAbs" class="form-control mb-3 form-control-file  form-control-user" type="file" id="formFile">
                                             <input style="background-color: #ff5e37;" name="submit" type="submit" class ="text-light btn btn-user btn-block" value="Enregistrer" >
                                         </div>
                                         </div>
