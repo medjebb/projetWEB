@@ -160,6 +160,9 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Verification des reclamations</h1>
+                        <div id="btn_ajouter_abs">
+
+                        </div>
                     </div>
 
                     <!-- data -->
@@ -176,7 +179,7 @@
                                 <li  class="nav-item"  onclick="showReclamation(2)">
                                     <div style="cursor: pointer;" id="btn_verify_3" class="nav-link ">Conges</div>
                                 </li>
-                                <li  class="nav-item"  onclick="showReclamation(3)">
+                                <li  class="nav-item"  onclick="showAbsence(3)">
                                     <div style="cursor: pointer;" id="btn_verify_4" class="nav-link ">Absence</div>
                                 </li>
                             </ul>
@@ -185,7 +188,8 @@
                             <!-- <h5 class="card-title">Special title treatment</h5>
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                             <a href="#" class="btn btn-primary">Go somewhere</a> -->
-                            <div class="card-body">
+                            <div class="card-body" id="contentAbsence">
+                                
                             <div class="table-responsive">
                                 <table  class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -316,6 +320,58 @@
         </div>
         </div>
 
+        <div class="modal fade" id="ajouterAbs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ajouter une absence</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                <div class="mb-3">
+                <label for="dateAbs" class="col-form-label">Date:</label>
+                <input id="dateAbs" type="date" class="form-control">
+                </div>
+                <div class="mb-3">
+                <label for="employeAbs" class="col-form-label">Employe:</label>
+                <select class="form-control form-control-user" name="typeConge" id="employeAbs" style="color:gray;" >
+                <?php
+                    require_once('include/employe.php');
+                    $employes = Employe::getAll();
+                    if(count($employes)==0){
+                        echo "<option>vide</option>";
+                    }
+                    foreach($employes as $employe){
+                        echo '<option value="'.$employe['idEmploye'].'">'.$employe['Nom'].' '.$employe['Prenom'].'</option>';
+                    }
+                ?>
+                </select>
+                </div>
+                <div class="mb-3">
+                <label for="nbHeure" class="col-form-label">Nombres d'heures:</label>
+                <select class="form-control form-control-user" name="typeConge" id="nbHeure" style="color:gray;" >
+                <?php
+                for ($i=1; $i <9 ; $i++) { 
+                    echo '<option value="'.$i.'"> '.$i.' </option>';
+                }
+                ?>
+                </select>
+                </div>
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+                <div class="close btn btn-primary" onclick="ajouterAbs()" data-dismiss="modal" aria-label="Close">Ajouter</div>
+            </div>
+        </div>
+        </div>
+        </div>
 
 
     <!-- Bootstrap core JavaScript-->
