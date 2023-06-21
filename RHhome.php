@@ -89,6 +89,17 @@
             </li>
             
             <li class="nav-item">
+                <a class="nav-link" href="RHprime.php">
+                    <i class="fa fa-check-square"></i>
+                    <span>Primes</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="RHindemnite.php">
+                    <i class="fa fa-check-square"></i>
+                    <span>Indemnites</span></a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="Employe.php">
                     <i class="fa fa-check-square"></i>
                     <span>Interface employe</span></a>

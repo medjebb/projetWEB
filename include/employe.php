@@ -61,7 +61,13 @@ class Employe{
         $_dba->execute();
         return $_dba->rowCount();
     }
-
+    public static function countbyid($id){
+        $_dba = new Dbaccess();
+        $_dba->query("select * from employe where idEmploye= '$id'");
+        $_dba->execute();
+        return $_dba->rowCount();
+    }
+    
     public static function count(){
         $_dba = new Dbaccess();
         $_dba->query("select * from employe");

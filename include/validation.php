@@ -27,13 +27,13 @@ if(isset($_POST['login'])){
             if(!isset($_SESSION['redirect']))header('location: ../Employe.php');
             else header('Location:' .$_SESSION['redirect']);
         }else if($employe['role'] == "Paie"){
-            /*$_SESSION['id'] = $employe['idEmploye'];
+            $_SESSION['id'] = $employe['idEmploye'];
             $_SESSION['nom'] = $employe['Nom'];
             $_SESSION['prenom'] = $employe['Prenom'];
             $_SESSION['role'] = $employe['role'];
             $_SESSION['image'] = $employe['Image'];
-            if(!isset($_SESSION['redirect']))header('location: ../RHhome.php');
-            else header('Location:' .$_SESSION['redirect']);*/
+            if(!isset($_SESSION['redirect']))header('location: ../PaieHome.php');
+            else header('Location:' .$_SESSION['redirect']);
         }
     }
     else header('Location:../login.php?errornum=1');
