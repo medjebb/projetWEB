@@ -88,4 +88,11 @@ class absence
         $_dba->execute();
         return 0;
     }
+
+    public static function addJustif($id,$newname){
+        $_dba = new Dbaccess(); 
+        $_dba->query('UPDATE absence set justification="'.$newname.'" where idAbsence = "'.$id.'" ');
+        $_dba->execute();
+        return 0;
+    }
 }

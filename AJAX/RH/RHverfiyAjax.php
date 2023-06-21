@@ -300,7 +300,7 @@ if(count($abs)==0){
                  <td >".$employee['Nom']." ".$employee['Prenom']."</td>
                  <td >".$ab['nbrHeure']."</td>
                  <td >".$ab['date']."</td>
-                 <td >".$ab['justification']."</td>
+                 <td ><a href=\"include/ABS_justif/".$ab['justification']."\">Voir justificatif</a></td>
                  <td ><div ><button class=\"btn text-success\" onclick=\"accepter(4,".$ab['idAbsence'].")\"><i class=\"fa fa-check\"></i></button></div></td>
                  <td ><div><button class=\"btn text-danger fs-1 text-danger fw-bold\" onclick=\"refuser(4,".$ab['idAbsence'].")\" >X</button></div></td>
 
