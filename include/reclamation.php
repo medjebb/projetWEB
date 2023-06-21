@@ -48,7 +48,7 @@ class reclamation
 
     public static function getAll_RP(){
         $_dba = new Dbaccess(); 
-        $_dba->query("Select * from reclamation where responsable=1");
+        $_dba->query("Select * from reclamation where responsable=1 AND status=2");
         return $_dba->resultSet();
     }
 

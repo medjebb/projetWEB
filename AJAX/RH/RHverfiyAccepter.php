@@ -11,7 +11,7 @@ require_once('../../include/HeureSup.php');
 require_once('../../include/conges.php');
 require_once('../../include/absence.php');
 
-if ($type==0) {
+if ($type==0 || $type== -1) {
     $rst=reclamation::accepter($id);
     echo "
     <thead>
@@ -35,7 +35,17 @@ if ($type==0) {
         </tr>
     </tfoot>
     ";
+    if ($type==0)
+    {
     $reclamation = reclamation::getAll_RH();
+    $type=0;       
+    }
+    else
+    {
+    $reclamation = reclamation::getAll_RP();        
+    $type=-1;  
+    }
+
 if (count($reclamation) == 0) {
     echo "<tr class=\"odd\"><td valign=\"top\" colspan=\"6\" class=\"dataTables_empty\">No matching records found</td></tr>";
 } else {
@@ -58,7 +68,7 @@ if (count($reclamation) == 0) {
                  </div>
                  </td>
                  <td >".$rec['date']."</td>
-                 <td class=\"\" ><button class=\"btn text-success\" onclick=\"accepter(0,".$rec['idReclamation'].")\" ><i class=\"fa fa-check\"></i></button></div></td>
+                 <td class=\"\" ><button class=\"btn text-success\" onclick=\"accepter(".$type.",".$rec['idReclamation'].")\" ><i class=\"fa fa-check\"></i></button></div></td>
     
                  <div class=\"modal fade\" id=\"#RecModal_".$rec['idReclamation']."\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\"
                      aria-hidden=\"true\">
@@ -77,7 +87,7 @@ if (count($reclamation) == 0) {
                          </div>
                      </div>
                  </div>
-                 <td ><div><button class=\"btn text-danger fs-1 text-danger fw-bold\"onclick=\"refuser(0,".$rec['idReclamation'].")\" >X</button></div></td>
+                 <td ><div><button class=\"btn text-danger fs-1 text-danger fw-bold\"onclick=\"refuser(".$type.",".$rec['idReclamation'].")\" >X</button></div></td>
             </tr>";
     }
     echo "</tbody>";
