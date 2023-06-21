@@ -52,7 +52,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="RHhome.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Tableau de Bord</span></a>
             </li>
 
             <!-- Divider -->

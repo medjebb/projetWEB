@@ -166,7 +166,7 @@
                     
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Verification des reclamations</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Verification</h1>
                         <div id="btn_ajouter_abs">
 
                         </div>

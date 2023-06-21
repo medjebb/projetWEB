@@ -51,7 +51,7 @@
             <li class="nav-item ">
                 <a class="nav-link" href="Employe.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Tableau de bord</span></a>
             </li>
 
             <!-- Divider -->
@@ -131,16 +131,15 @@
 
 <!-- Sidebar Toggle (Topbar) -->
 <form class="form-inline">
-    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-        <i class="fa fa-bars"></i>
-    </button>
-</form>
-
+            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                <i class="fa fa-bars" style="color: #ff5e37;"></i>
+            </button>
+        </form>
 <!-- Topbar Search -->
 <form
     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
     <div class="input-group">
-        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
             aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
             <button style="background-color: #ff5e37;" class="btn" type="button">
@@ -165,20 +164,25 @@
         </a>
         <!-- Dropdown - User Information -->
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-            aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="Empprofile.php">
-                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                Profile
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                Logout
-            </a>
-        </div>
-    </li>
+                    aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="Empprofile.php">
+                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Profil
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <style>
+                #log:active{
+                      background-color: #ff5e37;
+                }
+            </style>
+                    <a class="dropdown-item" href="#" data-toggle="modal" id="log" data-target="#logoutModal">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                       se Déconnecter
+                    </a>
+                </div>
+            </li>
 
-</ul>
+        </ul>
 
 </nav>
 <!-- End of Topbar -->
@@ -233,7 +237,7 @@
                             </div>
                         </div>
 
-                        <input style="background-color: #ff5e37;" type="submit" class ="text-light btn btn-user btn-block" value="Ajouter l'entreprise" name='addentreprise'>
+                        <input style="background-color: #ff5e37;" type="submit" class ="text-light btn btn-user btn-block" value="Ajouter la demande" name='addentreprise'>
                     </form>
                 </div>
             </div>
@@ -263,23 +267,23 @@
 
 <!-- Logout Modal-->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-<div class="modal-content">
-    <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div>
-    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-    <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <a class="btn btn-primary" href="include/logout.php">Logout</a>
-    </div>
-</div>
-</div>
-</div>
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Prêt à partir?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à mettre fin à votre session en cours.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal" >Annuler</button>
+                <a class="btn btn-primary" href="include/logout.php" style="background-color:#ff5e37; border-color:#ff5e37">se Déconnecter</a>
+            </div>
+        </div>
+        </div>
+        </div>
 
         <!-- Bootstrap core JavaScript-->
         <script src="vendor/jquery/jquery.min.js"></script>

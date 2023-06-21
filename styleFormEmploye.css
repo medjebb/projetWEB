@@ -162,12 +162,12 @@ select.list-dt:focus {
 /*Icons in the ProgressBar*/
 #progressbar #professionnel:before {
     font-family: FontAwesome;
-    content: "\2602";
+    content: "\26DF";
 }
 
 #progressbar #personal:before {
     font-family: FontAwesome;
-    content: "\2602";
+    content: "\2709";
 }
 
 #progressbar #couvertureSociale:before {
@@ -177,7 +177,7 @@ select.list-dt:focus {
 
 #progressbar #confirm:before {
     font-family: FontAwesome;
-    content: "\2602";
+    content: "\2714";
 }
 
 /*ProgressBar before any progress*/

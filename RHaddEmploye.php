@@ -260,29 +260,8 @@
                                 <input type="submit" name="addEmploye" class="next action-button" id="sub" value="Confirmer"/>
                                 </fieldset>
                                 <?php
-                                if (isset($_COOKIE['name']) && $_COOKIE['name'] == 'true')
-                                 {
-                                    echo ' <fieldset id="success-card">
-                                    <div class="form-card">
-    
-                                                    <h2 class="fs-title text-center">Réussie !</h2>
-                                                    <br><br>
-                                                    <div class="row justify-content-center">
-                                                        <div class="col-3">
-                                                            <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image">
-                                                        </div>
-                                                    </div>
-                                                    <br><br>
-                                                    <div class="row justify-content-center">
-                                                        <div class="col-7 text-center">
-                                                            <h5>L\'ajout de l\'employé est sauvegardé avec succès</h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                    </fieldset>';
-                                 }
-                                 else 
-                                 {
+                               
+                                
                                     echo '<fieldset>
                                                     <div class="form-card">
                                                         <h2 class="fs-title text-center">Échec !</h2>
@@ -301,7 +280,7 @@
                                                         </div>
                                                     </div>
                                                 </fieldset>';
-                                 }
+                                 
                                 ?>
                         </form>
                     </div>

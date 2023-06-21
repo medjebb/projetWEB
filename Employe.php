@@ -196,11 +196,11 @@
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
+                            <div class="card  shadow h-100 py-2" style="border-left:5px solid #e55431;">
+                                <div class="card-body" >
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            <div class="text-xs font-weight-bold text-uppercase mb-1" style="color: #e55431;font-weight:bold;">
                                                 Avances Acceptés</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
 
@@ -222,11 +222,11 @@
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card shadow h-100 py-2" style="border-left:5px solid #ff3504;">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            <div class="text-xs font-weight-bold text-uppercase mb-1" style="color: #ff3504;font-weight:bold;">
                                             Demandes Heure Supplémentaire Acceptées</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                             <?php 
@@ -247,11 +247,11 @@
                         
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card shadow h-100 py-2" style="border-left:5px solid #ff5e37;">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            <div class="text-xs font-weight-bold text-uppercase mb-1" style="color: #ff5e37;font-weight:bold;">
                                             Congés Acceptées</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                             <?php 
@@ -273,11 +273,11 @@
 
                         <!-- Pending Requests Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
+                            <div class="card shadow h-100 py-2" style="border-left:5px solid #ff9c84;">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                            <div class="text-xs font-weight-bold text-uppercase mb-1"style="color:#ff9c84;font-weight:bold;">
                                             Reclamations Acceptées</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                             <?php 
@@ -295,8 +295,6 @@
                                 </div>
                             </div>
                         </div>
-
-
 </div>
 
         <!-- Content Row -->
