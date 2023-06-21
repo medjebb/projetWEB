@@ -1,9 +1,7 @@
 <?php
 session_start();
 require_once('employe.php');
-
 if(isset($_POST['login'])){
-
     $email = $_POST['email'];
     $password = $_POST['password'];
     $count = Employe::countbyemail($email,$password);
@@ -37,12 +35,7 @@ if(isset($_POST['login'])){
             if(!isset($_SESSION['redirect']))header('location: ../RHhome.php');
             else header('Location:' .$_SESSION['redirect']);*/
         }
-        
     }
     else header('Location:../login.php?errornum=1');
-
 }
-
-
-
 ?>

@@ -1,11 +1,7 @@
 <?php
 require_once('dbaccess.php');
 
-function genererMotDePasse($longueur) {
-    $bytes = random_bytes($longueur);
-    $motDePasse = bin2hex($bytes);
-    return $motDePasse;
-}
+
 class Employe{
 
     private  $nom;
@@ -33,11 +29,11 @@ class Employe{
 
     private  $RIB;
 
-    public function __construct($nom,$prenom,$email,$tel,$sexe,$role,$address,$image,$diplome,$datenaissance,$salairedebase,$nbrenfants,$dateembauche,$cnss,$amo,$igr,$cimr,$identreprise,$RIB){
+    public function __construct($nom,$prenom,$email,$password,$tel,$sexe,$role,$address,$image,$diplome,$datenaissance,$datecreation,$salairedebase,$nbrenfants,$dateembauche,$cnss,$amo,$igr,$cimr,$identreprise,$RIB){
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->email = $email;
-        $this->password = genererMotDePasse(8);
+        $this->password = $password;
         $this->tel = $tel;
         $this->sexe = $sexe;
         $this->role = $role;
@@ -45,7 +41,7 @@ class Employe{
         $this->image = $image;
         $this->diplome = $diplome;
         $this->datenaissance = $datenaissance;
-        $this->datecreation = date('Y-m-d');
+        $this->datecreation = $datecreation;
         $idcreateur=intval($_SESSION['id']);
         $this->createur=$idcreateur;
         $this->salairedebase =floatval($salairedebase);
@@ -95,6 +91,7 @@ class Employe{
 
     public function save(){
         $_dba = new Dbaccess();
+
         $_dba->query('INSERT INTO employe (Nom, Prenom, Email, Password, Tel, sexe, role, address, Image, Diplome, DateNaissance, DateCreation, idCreateur, SalairedeBase, NbEnfants, DateEmbauche, numCNSS, numAmo, numIGR, numCIMR, idEntreprise, RIB) VALUES ("'.$this->nom.'", "'.$this->prenom.'", "'.$this->email.'", "'.$this->password.'", "'.$this->tel.'", "'.$this->sexe.'", "'.$this->role.'", "'.$this->address.'", "'.$this->image.'", "'.$this->diplome.'", "'.$this->datenaissance.'", "'.$this->datecreation.'", "'.$this->createur.'", "'.$this->salairedebase.'", "'.$this->nbrenfants.'", "'.$this->dateembauche.'", "'.$this->cnss.'", "'.$this->amo.'", "'.$this->igr.'", "'.$this->cimr.'", "'.$this->identreprise.'", "'.$this->RIB.'")');
 
         $_dba->execute();
@@ -110,7 +107,7 @@ class Employe{
 
     public function update($id){
         $_dba = new Dbaccess(); 
-        $_dba->query('UPDATE employe SET Email = "'. $this->email .'", Password = "'. $this->password .'", Tel = "'. $this->tel .'", role = "'. $this->role .'", address = "'. $this->address .'", Image = "'. $this->image .'", SalairedeBase = "'. $this->salairedebase .'", NbEnfants = "'. $this->nbrenfants .'", numCNSS = "'. $this->cnss .'", numAMO = "'. $this->amo .'", numIGR = "'. $this->igr .'", numCIMR = "'. $this->cimr .'", RIB = "'. $this->RIB .'" WHERE idEmploye = "'.$id.'"');
+        $_dba->query('UPDATE employe SET Email = "'. $this->email .'", Tel = "'. $this->tel .'", address = "'. $this->address .'", SalairedeBase = "'. $this->salairedebase .'", NbEnfants = "'. $this->nbrenfants .'", numCNSS = "'. $this->cnss .'", numAMO = "'. $this->amo .'", numIGR = "'. $this->igr .'", numCIMR = "'. $this->cimr .'", RIB = "'. $this->RIB .'" WHERE idEmploye = "'.$id.'"');
 
         $_dba->execute();
         return 0;

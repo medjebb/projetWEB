@@ -43,6 +43,12 @@ class absence
         return $_dba->resultSet();
     }
 
+    public static function getAll_ByMonth($mois){
+        $_dba = new Dbaccess(); 
+        $_dba->query('Select * from absence where MONTH(date) = "'.$mois.'"');
+        return $_dba->resultSet();
+    }
+
     public static function getAll_enAttente(){
         $_dba = new Dbaccess(); 
         $_dba->query("Select * from absence where status=2");

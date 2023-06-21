@@ -29,7 +29,7 @@ function showReclamation(str) {
     };
     var btn_ajouter_abs= document.getElementById("btn_ajouter_abs").innerHTML =`
     <button data-toggle="modal" data-target="#ajouterAbs" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fa fa-plus fa-sm text-white-50"></i> Ajouter un employe</button>`;
+                                class="fa fa-plus fa-sm text-white-50"></i> Ajouter une absence</button>`;
 
 
 

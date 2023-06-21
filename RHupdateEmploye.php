@@ -108,7 +108,7 @@
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
@@ -136,7 +136,7 @@
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="profileadmin.php">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
+                                    Profil
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
@@ -179,7 +179,7 @@
                                             value="<?php echo $_GET['Tel'];?>" name="Tel" required>
                                     </div>
                                 </div>
-
+                                
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                     Adresse:
@@ -187,20 +187,8 @@
                                             value="<?php echo $_GET['address'];?>" name="address" required> 
                                     </div>
                                     <div class="col-sm-6">
-                                    <label for="formFile"  style="font-family:verdana;margin-left:9px;font-size:15px;color:#909090">  Choisir une image :</label>
-                                    <input class="form-control" type="file" value="<?php echo $_GET['address'];?>" id="formFile" style="color:gray;" name="image"> 
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        role:
-                                    <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                            value="<?php echo $_GET['role'];?>" name="role" required>
-                                    </div>
-                                    <div class="col-sm-6">
                                         Salaire de Base:
-                                    <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                      <input type="text" class="form-control form-control-user" id="exampleLastName"
                                             value="<?php echo $_GET['SalairedeBase'];?>" name="SalairedeBase" required>
                                     </div>
                                 </div>
@@ -243,7 +231,7 @@
                                             value="<?php echo $_GET['RIB'];?>" name="RIB" required>
                                     </div>
                                 </div>
-                                <input type="submit" class ="btn btn-primary btn-user btn-block" value="Mise à Jour Employe" name='updateEmploye'>
+                                <input type="submit" class ="btn btn-primary btn-user btn-block" value="Modifer Employe" name='updateEmploye'>
                             </form>
                         </div>
                     </div>

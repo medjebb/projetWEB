@@ -192,7 +192,7 @@
                                             value="<?php echo $_GET['createDate'];?>" name="createDate" onfocus="(this.type='date')" required>
                                     </div>
                                 </div>
-                                <input type="submit" class ="btn btn-primary btn-user btn-block" value="update l'entreprise" name='updateentreprise'>
+                                <input type="submit" class ="btn btn-primary btn-user btn-block" value="Modifier l'entreprise" name='updateentreprise'>
                             </form>
                         </div>
                     </div>

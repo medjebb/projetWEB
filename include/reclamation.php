@@ -38,6 +38,12 @@ class reclamation
         $_dba->query("Select * from reclamation where responsable=0 AND status=2");
         return $_dba->resultSet();
     }
+   
+    public static function get_accepter($id){
+        $_dba = new Dbaccess(); 
+        $_dba->query('Select * from reclamation where status=1 AND idEmploye="'.$id.'" ');
+        return $_dba->resultSet();
+    }
 
 
     public static function getAll_RP(){

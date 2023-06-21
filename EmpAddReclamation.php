@@ -67,10 +67,6 @@
             <a class="collapse-item" href="EmpConge.php">Conge</a>
             <a class="collapse-item" href="EmpAvance.php">Avance</a>
             
-            <!-- <div class="collapse-divider"></div>
-            <h6 class="collapse-header">Other Pages:</h6>
-            <a class="collapse-item" href="404.html">404 Page</a>
-            <a class="collapse-item" href="blank.html">Blank Page</a> -->
         </div>
     </div>
 </li>
@@ -88,10 +84,6 @@
             <h6 class="collapse-header">Employe pages:</h6>
             <a class="collapse-item" href="EmpReclamation.php"> Reclamation</a>
             <a class="collapse-item" href="EmpHeuresSupp.php">Heures Supplementaires</a>
-            <!-- <div class="collapse-divider"></div>
-            <h6 class="collapse-header">Other Pages:</h6>
-            <a class="collapse-item" href="404.html">404 Page</a>
-            <a class="collapse-item" href="blank.html">Blank Page</a> -->
         </div>
     </div>
 </li>
@@ -128,17 +120,19 @@
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
         <!-- Sidebar Toggle (Topbar) -->
-        <form class="form-inline">
+         <!-- Sidebar Toggle (Topbar) -->
+         <form class="form-inline">
             <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                <i class="fa fa-bars"></i>
+                <i class="fa fa-bars" style="color: #ff5e37;"></i>
             </button>
         </form>
+
 
         <!-- Topbar Search -->
         <form
             class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
-                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
                     aria-label="Search" aria-describedby="basic-addon2">
                 <div class="input-group-append">
                     <button style="background-color: #ff5e37;" class="btn" type="button">
@@ -166,18 +160,22 @@
                     aria-labelledby="userDropdown">
                     <a class="dropdown-item" href="Empprofile.php">
                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Profile
+                        Profil
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                    <style>
+                #log:active{
+                      background-color: #ff5e37;
+                }
+            </style>
+                    <a class="dropdown-item" href="#" data-toggle="modal" id="log" data-target="#logoutModal">
                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Logout
+                       se Déconnecter
                     </a>
                 </div>
             </li>
 
         </ul>
-
         </nav>
         <!-- End of Topbar -->
 
@@ -250,21 +248,20 @@
         <i class="fas fa-angle-up"></i>
         </a>
 
-        <!-- Logout Modal-->
         <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Prêt à partir?</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à mettre fin à votre session en cours.</div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="include/logout.php">Logout</a>
+                <button class="btn btn-secondary" type="button" data-dismiss="modal" >Annuler</button>
+                <a class="btn btn-primary" href="include/logout.php" style="background-color:#ff5e37; border-color:#ff5e37">se Déconnecter</a>
             </div>
         </div>
         </div>

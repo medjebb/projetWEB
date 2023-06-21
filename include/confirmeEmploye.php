@@ -1,13 +1,19 @@
 <?php
 require_once('validation.php');
-
+function genererMotDePasse($longueur) {
+    $bytes = random_bytes($longueur);
+    $motDePasse = bin2hex($bytes);
+    return $motDePasse;
+}
 if(isset($_POST['addEmploye'])
 ){
-
+    $password=genererMotDePasse(8);
+    $datecreation=date('Y-m-d');
      $employe = new Employe(
          $_POST['nom'],
          $_POST['prenom'],
          $_POST['email'],
+         $password,
          $_POST['tel'],
          $_POST['sexe'],
          'Employe',
@@ -15,6 +21,7 @@ if(isset($_POST['addEmploye'])
          $_POST['image'],
          $_POST['diplome'],
          $_POST['DateNaissance'],
+         $datecreation,
          $_POST['salaireBase'],
          $_POST['nbEnfant'],
          $_POST['DateEmbauche'],
@@ -26,19 +33,23 @@ if(isset($_POST['addEmploye'])
          $_POST['rib'],
      );
      $employe->save();
-     header('location:../RHEmploye.php');
- }
+     header('Location: ../RHEmploye.php');
+} 
+
 
 if (isset($_POST['updateEmploye'])) 
 {
-$employe = new Employe(
+    
+  $employe = new Employe(
     NULL,
     NULL,
     $_POST['Email'],
+    NULL,
     $_POST['Tel'],
     NULL,
     NULL,
     $_POST['address'],
+    NULL,
     NULL,
     NULL,
     NULL,
@@ -52,6 +63,7 @@ $employe = new Employe(
     NULL,
     $_POST['RIB']
 );
+
 $employe->update($_POST['idEmploye']);
 header('location: ../RHEmploye.php');
 }
