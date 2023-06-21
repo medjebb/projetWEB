@@ -49,6 +49,12 @@ class conge
         return $_dba->resultSet();
     }
 
+    public static function get_Accepter($id){
+        $_dba = new Dbaccess(); 
+        $_dba->query('Select * from conge where status=1 AND idEmploye = "'.$id.'" ');
+        return $_dba->resultSet();
+    }
+
     public static function getAll_enCours_MemeAnnee($annee){
         $_dba = new Dbaccess(); 
         $_dba->query('Select * from conge where status=2 AND YEAR(DateDebut) = "'.$annee.'"');

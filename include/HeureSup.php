@@ -42,6 +42,12 @@ class HeureSup
         return $_dba->resultSet();
     }
 
+    public static function get_accepter($id){
+        $_dba = new Dbaccess(); 
+        $_dba->query('Select * from hs where status=1 AND idEmploye = "'.$id.'" ');
+        return $_dba->resultSet();
+    }
+
     public function save(){
         $_dba = new Dbaccess(); 
         $_dba->query('INSERT INTO hs VALUES(null,"'. $this->status .'","'. $this->nbrheures .'","'. $this->datehs .'","'. $this->idEmploye .'")');

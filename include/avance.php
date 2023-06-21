@@ -34,6 +34,12 @@ class avance
         return $_dba->resultSet();
     }
 
+    public static function get_accepter($id){
+        $_dba = new Dbaccess(); 
+        $_dba->query('Select * from avance where statut=1 AND idEmploye="'.$id.'" ');
+        return $_dba->resultSet();
+    }
+
     public function save(){
         $_dba = new Dbaccess(); 
         $_dba->query('INSERT INTO avance (statut,dateDemande,avance,idEmploye) VALUES("'.$this->statut.'", "'.$this->dateDemande.'","'.$this->avance.'","'.$this->idEmploye.'")');
