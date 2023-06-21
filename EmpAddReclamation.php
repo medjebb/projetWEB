@@ -67,10 +67,6 @@
             <a class="collapse-item" href="EmpConge.php">Conge</a>
             <a class="collapse-item" href="EmpAvance.php">Avance</a>
             
-            <!-- <div class="collapse-divider"></div>
-            <h6 class="collapse-header">Other Pages:</h6>
-            <a class="collapse-item" href="404.html">404 Page</a>
-            <a class="collapse-item" href="blank.html">Blank Page</a> -->
         </div>
     </div>
 </li>
@@ -88,10 +84,6 @@
             <h6 class="collapse-header">Employe pages:</h6>
             <a class="collapse-item" href="EmpReclamation.php"> Reclamation</a>
             <a class="collapse-item" href="EmpHeuresSupp.php">Heures Supplementaires</a>
-            <!-- <div class="collapse-divider"></div>
-            <h6 class="collapse-header">Other Pages:</h6>
-            <a class="collapse-item" href="404.html">404 Page</a>
-            <a class="collapse-item" href="blank.html">Blank Page</a> -->
         </div>
     </div>
 </li>

@@ -43,6 +43,24 @@ class conge
         return $_dba->resultSet();
     }
 
+    public static function getAll_Accepter(){
+        $_dba = new Dbaccess(); 
+        $_dba->query("Select * from conge where status=1");
+        return $_dba->resultSet();
+    }
+
+    public static function getAll_enCours_MemeAnnee($annee){
+        $_dba = new Dbaccess(); 
+        $_dba->query('Select * from conge where status=2 AND YEAR(DateDebut) = "'.$annee.'"');
+        return $_dba->resultSet();
+    }
+
+    public static function getAll_Accepter_MemeAnnee($annee){
+        $_dba = new Dbaccess(); 
+        $_dba->query('Select * from conge where status=1 AND YEAR(DateDebut) = "'.$annee.'"');
+        return $_dba->resultSet();
+    }
+
     public function save(){
         $_dba = new Dbaccess(); 
         $_dba->query('INSERT INTO conge VALUES(NULL, "'.$this->typeConge.'", "'.$this->DateDebut.'","'.$this->DateRetour.'","'.$this->status.'" ,"'.$this->idEmploye.'")');

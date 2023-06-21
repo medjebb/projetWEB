@@ -114,7 +114,7 @@
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
@@ -172,9 +172,9 @@
                         </div>
 
  <!-- MultiStep Form -->
-<div class="container-fluid" id="grad1">
-    <div class="row justify-content-center mt-0">
-        <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
+<div class="container-fluid bg-gradient-primary">
+    <div class="row justify-content-center mt-0 ">
+        <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2 ">
             <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
                 <h2><strong>Ajouter informations d'un employé</strong></h2>
                 <p>Remplissez tous les champs du formulaire pour passer à l'étape suivante </p>
@@ -189,23 +189,24 @@
                                 <li id="couvertureSociale"><strong>Couverture Sociale</strong></li>
                                 <li id="confirm"><strong>Finir</strong></li>
                             </ul>
+                            
                             <!-- fieldsets -->
                             <fieldset>
                                 <div class="form-card">
                                     <h2 class="fs-title">Informations Personnelles</h2>
-                                    <input type="text" name="prenom" placeholder="Prenom"/>
-                                    <input type="text" name="nom" placeholder="Nom"/>
+                                    <input type="text" name="prenom" placeholder="Prenom" required/>
+                                    <input type="text" name="nom" placeholder="Nom" required/>
                                     <div>
                                             <input type="text" class="form-control form-control-user" id="exampleLastName"
                                                 placeholder="Date de Naissance" name="DateNaissance" onfocus="(this.type='date')" required>
                                     </div>
-                                    <input type="email"  name="email"     placeholder="Email Id"/>
-                                    <input type="phone"  name="tel"       placeholder="Téléphone"/>
-                                    <input type="adress" name="adress"    placeholder="Adresse"/>
-                                    <input type="text"   name="nbEnfant"  placeholder="Nombre d'Enfants"/>
+                                    <input type="email"  name="email"     placeholder="Email Id" required/>
+                                    <input type="phone"  name="tel"       placeholder="Téléphone" required/>
+                                    <input type="adress" name="adress"    placeholder="Adresse" required/>
+                                    <input type="text"   name="nbEnfant"  placeholder="Nombre d'Enfants" required/>
                                     <label for="formFile" style="color:black; font-family:times new roman; font-size:17px;margin-left:9px;">  Choisir une image :</label>
-                                    <input class="form-control" type="file" id="formFile" style="color:gray;" name="image"> 
-                                    <select name="sexe" id="" style="color:gray;" >
+                                    <input class="form-control" type="file" id="formFile" style="color:gray;" name="image" required> 
+                                    <select name="sexe" id="" style="color:gray;" required>
                                         <option value="Femme" style="color:black;" selected>Femme</option>
                                         <option value="Homme" style="color:black;">Homme</option>
                                     </select>                                                                                                         
@@ -215,14 +216,26 @@
                             <fieldset>
                                 <div class="form-card">
                                     <h2 class="fs-title">Informations Professionnelles</h2>
-                                    <input type="text" name="diplome" placeholder="Diplome"/>
-                                    <input type="text" name="salaireBase" placeholder="Salaire de Base"/>
-                                    <input type="text" name="rib" placeholder="RIB"/>
+                                    <input type="text" name="diplome" placeholder="Diplome" required/>
+                                    <input type="text" name="salaireBase" placeholder="Salaire de Base" required/>
+                                    <input type="text" name="rib" placeholder="RIB" required/>
                                     <div class="">
                                             <input type="text" class="form-control form-control-user" id="exampleLastName"
                                                 placeholder="Date d'Embauche" name="DateEmbauche" onfocus="(this.type='date')" required>
                                     </div>
-                                    <input type="text" name="idEntreprise" placeholder="Identificateur Entreprise "/>
+                                    <div style="border-bottom:1px solid gray;padding:10px;">
+                                    <span style="font-family:Times new roman; font-size:17px;">Identificateur d'Entreprise : </span>
+                                    <select name="idEntreprise" id="" required>
+                                   <?php 
+                                   require_once("include/entreprise.php");
+                                   $identreprise=entreprise::getAll();
+                                   foreach ($identreprise as $entre)
+                                   {
+                                    echo "<option>$entre[idEntreprise]</option>";
+                                   }
+                                   ?>
+                                   </select>
+                                   </div>
                                 </div>
                                 <input type="button" name="previous" class="previous action-button-previous" value="Précédent"/>
                                 <input type="button" name="next" class="next action-button" value="Suivant"/>
@@ -230,33 +243,66 @@
                             <fieldset>
                                 <div class="form-card">
                                     <h2 class="fs-title">Couverture Sociale</h2>
-                                   
-                                    <input type="text" name="numCNSS" value=0 placeholder="Numero CNSS"/>
-                                    <input type="text" name="numAmo"   value=0 placeholder="Numero AMO"/>
-                                    <input type="text" name="numIGR"  value=0 placeholder="Numero IGR"/>
-                                    <input type="text" name="numCIMR" value=0 placeholder="Numero CIMR"/>
+                                    <span style="color:black;font-weight:bold;font-size:15px;"> Numero CNSS : </span>
+                                    <input type="text" name="numCNSS" value=0 style="color:gray;" required/>
+                                    
+                                    <span style="color:black;font-weight:bold;font-size:15px;">Numero AMO :</span>
+                                    <input type="text" name="numAmo"   value=0 style="color:gray;" required/>
+                                    
+                                    <span style="color:black;font-weight:bold;font-size:15px;">Numero IGR :</span>
+                                    <input type="text" name="numIGR"  value=0 style="color:gray;" required/>
+                                    
+                                    <span style="color:black;font-weight:bold;font-size:15px;"> Numero CIMR :</span>
+                                    <input type="text" name="numCIMR" value=0 style="color:gray;" required/>
                                   
                                 </div>
-                                <input type="button" name="previous" class="previous action-button-previous" value="Précédent"/>
-                                <input type="submit" name="addEmploye" class="next action-button" value="Confirmer"/>
-                            </fieldset>
-                            <fieldset>
-                                <div class="form-card">
-                                    <h2 class="fs-title text-center">Réussie !</h2>
-                                    <br><br>
-                                    <div class="row justify-content-center">
-                                        <div class="col-3">
-                                            <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image">
-                                        </div>
-                                    </div>
-                                    <br><br>
-                                    <div class="row justify-content-center">
-                                        <div class="col-7 text-center">
-                                            <h5>L'ajout de l'employé est sauvegardé avec succès</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </fieldset>
+                                <input type="button" name="previous" class="previous action-button-previous" id="prec" value="Précédent"/>
+                                <input type="submit" name="addEmploye" class="next action-button" id="sub" value="Confirmer"/>
+                                </fieldset>
+                                <?php
+                                if (isset($_COOKIE['name']) && $_COOKIE['name'] == 'true')
+                                 {
+                                    echo ' <fieldset id="success-card">
+                                    <div class="form-card">
+    
+                                                    <h2 class="fs-title text-center">Réussie !</h2>
+                                                    <br><br>
+                                                    <div class="row justify-content-center">
+                                                        <div class="col-3">
+                                                            <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image">
+                                                        </div>
+                                                    </div>
+                                                    <br><br>
+                                                    <div class="row justify-content-center">
+                                                        <div class="col-7 text-center">
+                                                            <h5>L\'ajout de l\'employé est sauvegardé avec succès</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                    </fieldset>';
+                                 }
+                                 else 
+                                 {
+                                    echo '<fieldset>
+                                                    <div class="form-card">
+                                                        <h2 class="fs-title text-center">Échec !</h2>
+                                                        <br><br>
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-3">
+                                                                <img src="https://img.icons8.com/color/96/000000/error.png" class="fit-image">
+                                                            </div>
+                                                        </div>
+                                                        <br><br>
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-7 text-center">
+                                                                <h5>Échec lors de l\'ajout de l\'employé</h5>
+                                                                <p>Veuillez réessayer ultérieurement.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>';
+                                 }
+                                ?>
                         </form>
                     </div>
                 </div>
@@ -336,6 +382,43 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" ></script>
 
     <script src="JsAddEmploye.js"></script>
+    <script>
+    // Fonction pour valider le formulaire avant de le soumettre
+    function validateForm() {
+        // Récupérer tous les champs d'entrée requis dans le formulaire
+        var inputs = document.querySelectorAll('input[required], select[required]');
+        
+        // Parcourir tous les champs d'entrée
+        for (var i = 0; i < inputs.length; i++) {
+            var input = inputs[i];
+            
+            // Vérifier si le champ est vide ou a une valeur non valide
+            if (input.value.trim() === '' || !input.checkValidity()) {
+                // Afficher un message d'erreur approprié
+                alert('Veuillez remplir tous les champs correctement avant de confirmer.');
+                
+                // Masquer la carte de réussite
+                document.getElementById('success-card').style.display = 'none';
+                
+                // Empêcher l'envoi du formulaire
+                return false;
+            }
+        }
+        
+        // Si tous les champs sont valides, soumettre le formulaire
+        return true;
+    }
+    
+    // Ajouter un gestionnaire d'événement pour le clic sur le bouton "Confirmer"
+    var confirmButton = document.querySelector('input[name="addEmploye"]');
+        confirmButton.addEventListener('click', function(event) {
+            var stat = validateForm();
+            if (stat) {
+                document.cookie = "name=" + encodeURIComponent(stat) + "; path=/";
+            }
+        });
+</script>
+
 
 </body>
 </html>
