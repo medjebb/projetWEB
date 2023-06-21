@@ -237,7 +237,7 @@
                                                      <div class=\"col-10\">".$rec['objet']."</div>
                                                      
                                                      <div class=\"col-2\">
-                                                    <a class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#RecModal\">
+                                                    <a class=\"dropdown-item\" href=\"#\" data-toggle=\"modal\" data-target=\"#RecModal_".$rec['idReclamation']."\">
                                                      <i class=\"fas fa-eye fa-sm fa-fw mr-2 text-gray-400\"></i>
                                                     </a>
                                                     </div>
@@ -249,7 +249,7 @@
                                                      <td ><div><button class=\"btn text-danger fs-1 text-danger fw-bold\" onclick=\"refuser(0,".$rec['idReclamation'].")\" >X</button></div></td>
                                                 </tr>";
                                                 echo '
-                                                <div class="modal fade" id="RecModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                                <div class="modal fade" id="RecModal_'.$rec['idReclamation'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                                     aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
