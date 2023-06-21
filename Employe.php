@@ -309,17 +309,24 @@
                     <!-- Card Header - Dropdown -->
                     <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Diagrammes</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Nouveau taches</h6>
                             </div>
                             <div class="card-body">
                                 <div class="text-center">
                                     <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                        src="img/undraw_data_reports_706v.svg" alt="...">
+                                        src="img/undraw_next_tasks_re_5eyy.svg" alt="...">
                                 </div>
-                                <p>Les diagrammes présents dans le tableau de bord vous permettent de suivre et d'analyser 
-                                    vos données en un coup d'œil. Que ce soit des graphiques à barres, des graphiques circulaires 
-                                    ou des graphiques en courbes, nous avons sélectionné les types de diagrammes les plus pertinents 
-                                    pour vous aider à comprendre et à interpréter vos données.</p>
+                                <p>Les nouvelles tâches ajoutées offrent aux employés des opportunités
+                                     passionnantes et stimulantes pour contribuer davantage à 
+                                     l'entreprise. Ces tâches supplémentaires élargissent 
+                                     leur champ d'action et leur permettent de développer de 
+                                     nouvelles compétences et connaissances.
+                                     L'illustration visuelle des nouvelles tâches permet aux employés 
+                                     de visualiser clairement les opportunités qui s'offrent à eux 
+                                     et de comprendre comment celles-ci s'inscrivent dans leur 
+                                     rôle et leurs objectifs professionnels. Cela facilite 
+                                     la communication et favorise une compréhension mutuelle 
+                                     entre les employés et les responsables.</p>
                             </div>
                         </div>
                 </div>
