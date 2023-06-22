@@ -10,8 +10,9 @@ require_once('../../include/employe.php');
 require_once('../../include/HeureSup.php');
 require_once('../../include/conges.php');
 require_once('../../include/absence.php');
+
 if ($type==0 || $type== -1) {
-    $rst=reclamation::accepter($id);
+    $rst=reclamation::refuser($id);
     echo "
     <thead>
         <tr>
