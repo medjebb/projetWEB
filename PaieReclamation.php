@@ -119,8 +119,8 @@
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
+                                <button class="btn " style="background-color: #8A61B1;" type="button">
+                                    <i class="fas fa-search fa-sm text-light" ></i>
                                 </button>
                             </div>
                         </div>
@@ -163,15 +163,13 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Gestion des regles</h1>
-                        <a href="Paieaddregle.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fa fa-plus fa-sm text-white-50"></i> Affecter une regle</a>
+                        <h1 class="h3 mb-0 text-gray-800">Gestion des Reclamations</h1>
                     </div>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Regles</h6>
+                            <h6 class="m-0 font-weight-bold " style="color: #8A61B1;">Reclamation</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
