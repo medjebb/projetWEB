@@ -57,6 +57,17 @@ class Prime
         return 0;
     }
 
+    public static function getBy_Month_Year($Month, $year) {
+        $_dba = new Dbaccess();
+        $_dba->query("SELECT SUM(prime) AS somme_primes
+                      FROM prime
+                      WHERE MONTH(datePrime) = ".$Month." AND YEAR(datePrime) = ".$year);
+        $_dba->execute();
+        $result = $_dba->single(); // Récupérer le résultat de la requête
+        return $result['somme_primes']; // Retourner la somme des primes
+    }
+    
+
     public function update($id){
         $_dba = new Dbaccess(); 
         $_dba->query('UPDATE prime set typePrime = "'. $this->typePrime .'" , prime = "'. $this->prime .'" , datePrime = "'. $this->datePrime .'" , idEmploye = "'. $this->idEmploye .'" where idPrime = "'.$id.'" ');

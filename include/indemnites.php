@@ -59,6 +59,17 @@ class Indemnite
         return 0;
     }
 
+    public static function getBy_Month_Year($Month, $year) {
+        $_dba = new Dbaccess();
+        $_dba->query("SELECT SUM(montant) AS somme_mt
+                      FROM indemnite
+                      WHERE MONTH(dateindemnite) = ".$Month." AND YEAR(dateindemnite) = ".$year);
+        $_dba->execute();
+        $result = $_dba->single(); // Récupérer le résultat de la requête
+        return $result['somme_mt']; // Retourner la somme des primes
+    }
+    
+
     public function update($id){
         $_dba = new Dbaccess(); 
         $_dba->query('UPDATE indemnite set typeIndemnite = "'. $this->typeIndemnite .'" , montant = "'. $this->montant .'" , dateindemnite = "'. $this->dateindemnite .'" , idEmploye = "'. $this->idEmploye .'" , idEntreprise = "'. $this->idEntreprise .'" where idIndemnite = "'.$id.'" ');

@@ -1,6 +1,5 @@
 <?php
     require('include/redirect.php');
-    require('include/RHvalidation.php');
    
     require_once('include/conges.php');
     $annee=date('Y');
@@ -90,19 +89,8 @@
             </li>
             
             <li class="nav-item">
-                <a class="nav-link" href="RHprime.php">
-                    <i class="fa fa-money-check" aria-hidden="true"></i>
-                    <span>Primes</span></a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="RHindemnite.php">
-                    <i class="fa fa-money-bill"></i>
-                    <span>Indemnites</span></a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="Employe.php">
-                    <i class="fa fa-desktop"></i>
+                    <i class="fa fa-check-square"></i>
                     <span>Interface employe</span></a>
             </li>
 

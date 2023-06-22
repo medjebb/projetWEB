@@ -40,6 +40,17 @@ class avance
         return $_dba->resultSet();
     }
 
+    public static function getBy_Month_Year($Month, $year) {
+        $_dba = new Dbaccess();
+        $_dba->query("SELECT SUM(avance) AS somme_avc
+                      FROM avance
+                      WHERE MONTH(dateDemande) = ".$Month." AND YEAR(dateDemande) = ".$year);
+        $_dba->execute();
+        $result = $_dba->single(); // Récupérer le résultat de la requête
+        return $result['somme_avc']; // Retourner la somme des primes
+    }
+
+
     public function save(){
         $_dba = new Dbaccess(); 
         $_dba->query('INSERT INTO avance (statut,dateDemande,avance,idEmploye) VALUES("'.$this->statut.'", "'.$this->dateDemande.'","'.$this->avance.'","'.$this->idEmploye.'")');
