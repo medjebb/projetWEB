@@ -108,7 +108,7 @@
           <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
         </div>
       </div>
-    <div class="container" style="position: absolute;z-index: 20;top: 15%;right: 15%;">
+    <div class="container" style="position: absolute;z-index: 20;top: 15%;right: 20%;">
        <!-- Outer Row --> <!-- Outer Row --> <!-- Outer Row --> <!-- Outer Row -->
         <!-- Outer Row -->
         <div class="row justify-content-center">

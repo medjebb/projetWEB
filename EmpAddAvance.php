@@ -94,16 +94,50 @@
                     </div>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsevisuals"
+                    aria-expanded="true" aria-controls="collapsevisuals">
+                <i class="fas fa-fw fa-folder"></i>
+                    <span>Visualiser</span>
+                </a>
+                
+                <div id="collapsevisuals" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Employe pages:</h6>
+                        <a class="collapse-item" href="EmpPrime.php">Primes</a>
+                        <a class="collapse-item" href="EmpIndemnite.php">Indemnites</a>
+                        <!-- <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Other Pages:</h6>
+                        <a class="collapse-item" href="404.html">404 Page</a>
+                        <a class="collapse-item" href="blank.html">Blank Page</a> -->
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="EmpAbsences.php">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Absences</span></a>
+            </li>
 
             <?php if($_SESSION['role']=="RH"){
             echo "
                 <li class='nav-item'>
                     <a class='nav-link' href='RHhome.php'>
-                    <i class='fa fa-check-square'></i>
+                    <i class='fa fa-desktop'></i>
                     <span>Interface RH</span></a>
                 </li>
                 ";
-            }
+            }else if($_SESSION['role'] =="Paie"){
+                echo "
+                    <li class='nav-item'>
+                        <a class='nav-link' href='PaieHome.php'>
+                        <i class='fa fa-desktop'></i>
+                        <span>Interface RP</span></a>
+                    </li>
+                    ";
+                }
             ?>
             
             <!-- Divider -->

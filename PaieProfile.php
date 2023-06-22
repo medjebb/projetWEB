@@ -1,5 +1,6 @@
 <?php
     require('include/redirect.php');
+    require('include/RPvalidation.php');
     require_once('include/employe.php');
     require_once('include/entreprise.php');
 
@@ -37,7 +38,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul style="background-color: #8A61B1;" class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="PaieHome.php">
@@ -51,7 +52,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
+            <li class="nav-item ">
                 <a class="nav-link" href="PaieHome.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Tableau de Bord</span></a>
@@ -63,25 +64,25 @@
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="PaieRubrique.php">
-                    <i class="fa fa-building"></i>
+                    <i class="fa fa-file-contract"></i>
                     <span>Rubrique</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="PaieRegle.php">
-                    <i class="fa fa-male"></i>
+                    <i class="fa fa-percent"></i>
                     <span>Affecter regle</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="PaieReclamation.php">
-                    <i class="fa fa-check-square"></i>
+                    <i class="fa fa-comments"></i>
                     <span>Reclamation</span></a>
             </li>
             
             <li class="nav-item">
                 <a class="nav-link" href="Employe.php">
-                    <i class="fa fa-check-square"></i>
+                    <i class="fa fa-desktop"></i>
                     <span>Interface employe</span></a>
             </li>
 

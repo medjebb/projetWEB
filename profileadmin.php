@@ -51,7 +51,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item ">
                 <a class="nav-link" href="RHhome.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Tableau de Bord</span></a>
@@ -81,18 +81,18 @@
             
             <li class="nav-item">
                 <a class="nav-link" href="RHprime.php">
-                    <i class="fa fa-check-square"></i>
+                    <i class="fa fa-money-check" aria-hidden="true"></i>
                     <span>Primes</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="RHindemnite.php">
-                    <i class="fa fa-check-square"></i>
+                    <i class="fa fa-money-bill"></i>
                     <span>Indemnites</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="Employe.php">
-                    <i class="fa fa-check-square"></i>
+                    <i class="fa fa-desktop"></i>
                     <span>Interface employe</span></a>
             </li>
 

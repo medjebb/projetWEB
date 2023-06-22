@@ -88,11 +88,7 @@
                 </div>
             </li>
 
-            <li class="nav-item active">
-                <a class="nav-link" href="EmpAbsences.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Absences</span></a>
-            </li>
+            
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsevisuals"
                     aria-expanded="true" aria-controls="collapsevisuals">
@@ -114,11 +110,17 @@
                 </div>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="EmpAbsences.php">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Absences</span></a>
+            </li>
+
             <?php if($_SESSION['role']=="RH"){
             echo "
                 <li class='nav-item'>
                     <a class='nav-link' href='RHhome.php'>
-                    <i class='fa fa-check-square'></i>
+                    <i class='fa fa-desktop'></i>
                     <span>Interface RH</span></a>
                 </li>
                 ";
@@ -126,7 +128,7 @@
                 echo "
                     <li class='nav-item'>
                         <a class='nav-link' href='PaieHome.php'>
-                        <i class='fa fa-check-square'></i>
+                        <i class='fa fa-desktop'></i>
                         <span>Interface RP</span></a>
                     </li>
                     ";
