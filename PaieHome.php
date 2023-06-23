@@ -113,11 +113,11 @@
         <form
             class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
-                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
                     aria-label="Search" aria-describedby="basic-addon2">
                 <div class="input-group-append">
-                    <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
+                    <button class="btn btn-primary"  style="background-color: #8A61B1;border-color:#8A61B1;" type="button">
+                        <i class="fas fa-search fa-sm" ></i>
                     </button>
                 </div>
             </div>
@@ -126,32 +126,38 @@
         <!-- Topbar Navbar -->
         <ul class="navbar-nav ml-auto">
 
-            <div class="topbar-divider d-none d-sm-block"></div>
+<div class="topbar-divider d-none d-sm-block"></div>
 
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['nom']." ".$_SESSION['prenom']; ?></span>
-                    <img class="img-profile rounded-circle"
-                        src="img/pdp/<?php echo $_SESSION['image']; ?>">
-                </a>
-                <!-- Dropdown - User Information -->
-                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                    aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="PaieProfile.php">
-                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Profile
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                        Se Déconnecter
-                    </a>
-                </div>
-            </li>
+<!-- Nav Item - User Information -->
+<li class="nav-item dropdown no-arrow">
+    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['nom']." ".$_SESSION['prenom']; ?></span>
+        <img class="img-profile rounded-circle"
+            src="img/pdp/<?php echo $_SESSION['image']; ?>">
+    </a>
+    <!-- Dropdown - User Information -->
+    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+        aria-labelledby="userDropdown">
+        <a class="dropdown-item" id="log" href="PaieProfile.php">
+            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+            Profile
+        </a>
+        <div class="dropdown-divider"></div>
+        <style>
+            #log:active{
+                  background-color: #8A61B1;
+            }
+        </style>
+        <a class="dropdown-item" href="#" data-toggle="modal" id="log" data-target="#logoutModal">
+            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+            se Déconnecter
+        </a>
+    </div>
+</li>
 
-        </ul>
+</ul>
+
 
         </nav>
         <!-- End of Topbar -->
@@ -162,20 +168,19 @@
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">Tableau de Bord</h1>
-                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                    
                 </div>
 
                 <!-- Content Row -->
                 <div class="row">
 
                     <!-- Earnings (Monthly) Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-primary shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                    <div class="col-xl-3 col-md-6 mb-4" >
+                        <div class="card  shadow h-100 py-2" style="border-left:5px solid #8A61B1;">
+                            <div class="card-body" >
+                                <div class="row no-gutters align-items-center" >
+                                    <div class="col mr-2" >
+                                        <div class="text-xs font-weight-bold  text-uppercase mb-1"  style="color: #8A61B1;">
                                           Primes (mensuels)</div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800">
                                         <?php 
@@ -197,11 +202,11 @@
 
                     <!-- Earnings (Monthly) Card Example -->
                     <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card  shadow h-100 py-2"style="border-left:5px solid #8A61B1;">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        <div class="text-xs font-weight-bold  text-uppercase mb-1" style="color: #8A61B1;">
                                             Indemnités (mensuels)</div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800">
                                         <?php 
@@ -221,11 +226,11 @@
 
                      <!-- Earnings (Monthly) Card Example -->
                      <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card  shadow h-100 py-2"style="border-left:5px solid #8A61B1;">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        <div class="text-xs font-weight-bold text-uppercase mb-1" style="color: #8A61B1;">
                                             Avances (mensuels)</div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800">
                                         <?php 
@@ -249,11 +254,11 @@
 
                    <!-- Pending Requests Card Example -->
                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-warning shadow h-100 py-2">
+                        <div class="card shadow h-100 py-2"style="border-left:5px solid #8A61B1;">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        <div class="text-xs font-weight-bold  text-uppercase mb-1"  style="color: #8A61B1;">
                                          Reclamation en Attente</div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800">
                                         <?php 
@@ -284,7 +289,7 @@
                             <!-- Card Header - Dropdown -->
                             <div
                                 class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Avances (Annuelles) </h6>
+                                <h6 class="m-0 font-weight-bold"  style="color: #8A61B1;">Avances (Annuelles) </h6>
                                 <div class="dropdown no-arrow">
                                     
                                 </div>
@@ -311,7 +316,7 @@
    <!-- Illustrations -->
    <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Diagrammes</h6>
+            <h6 class="m-0 font-weight-bold "  style="color: #8A61B1;">Diagrammes</h6>
         </div>
         <div class="card-body">
             <div class="text-center">
@@ -329,7 +334,7 @@
 <div class="col-lg-6 mb-4">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">LMAD</h6>
+            <h6 class="m-0 font-weight-bold "  style="color: #8A61B1;">LMAD</h6>
         </div>
         <div class="card-body">
             <p>LMAD est une application web innovante conçue pour faciliter la gestion des employés, 
@@ -392,8 +397,8 @@
             </div>
             <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à mettre fin à votre session en cours.</div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
-                <a class="btn btn-primary" href="include/logout.php">se Déconnecter</a>
+                <button class="btn btn-secondary" type="button" data-dismiss="modal" >Annuler</button>
+                <a class="btn btn-primary" href="include/logout.php" style="background-color:#8A61B1; border-color:#8A61B1">se Déconnecter</a>
             </div>
         </div>
         </div>

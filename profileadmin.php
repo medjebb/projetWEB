@@ -1,5 +1,6 @@
 <?php
     require('include/redirect.php');
+    require('include/RHvalidation.php');
     require_once('include/employe.php');
     require_once('include/entreprise.php');
 
