@@ -58,4 +58,20 @@ class avance
         return 0;
     }
 
+
+    public static function accepter($id){
+        $status=1;
+        $_dba = new Dbaccess(); 
+        $_dba->query('UPDATE avance set statut="'.$status.'" where idAvance = "'.$id.'" ');
+        $_dba->execute();
+        return 0;
+    }
+    public static function refuser($id){
+        $status=0;
+        $_dba = new Dbaccess(); 
+        $_dba->query('UPDATE avance set statut="'.$status.'" where idAvance = "'.$id.'" ');
+        $_dba->execute();
+        return 0;
+    }
+
 }

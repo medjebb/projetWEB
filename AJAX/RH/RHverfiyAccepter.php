@@ -10,6 +10,7 @@ require_once('../../include/employe.php');
 require_once('../../include/HeureSup.php');
 require_once('../../include/conges.php');
 require_once('../../include/absence.php');
+require_once('../../include/avance.php');
 
 if ($type==0 || $type== -1) {
     $rst=reclamation::accepter($id);
@@ -246,4 +247,43 @@ if(count($abs)==0){
 }
 }
 
+if ($type==6) {
+    $avance= avance::accepter($id);
+    echo "
+    <thead>
+    <tr>
+        <th>IdAvance</th>
+        <th>Date de Deamnde</th>
+        <th>Montant</th>
+        <th>Accepter</th>
+        <th>Refuser</th>
+    </tr>
+</thead>
+<tfoot>
+    <tr>
+    <th>IdAvance</th>
+        <th>Date de Deamnde</th>
+        <th>Montant</th>
+        <th>Accepter</th>
+        <th>Refuser</th>
+    </tr>
+</tfoot>
+    ";
+    $avance= avance::getAll_enCours();
+    if(count($avance)==0){
+        echo "<tr class=\"odd\"><td valign=\"top\" colspan=\"6\" class=\"dataTables_empty\">No matching records found</td></tr>";
+    }else{
+        foreach($avance as $avc){
+                echo "<tr class=\"\">
+                    <td class=\"\">".$avc['idAvance']."</td>
+                    <td class=\"\">".$avc['dateDemande']."</td>
+                     <td >".$avc['avance']."</td>
+                     <td ><div class=\"\" href=\"\"><button class=\"btn text-success\" onclick=\"accepter(6,".$avc['idAvance'].")\"><i class=\"fa fa-check\"></i></button></div></td>
+                     <td ><div><button class=\"btn text-danger fs-1 text-danger fw-bold\" onclick=\"refuser(6,".$avc['idAvance'].")\" >X</button></div></td>";
+                echo "</tr>";
+            
+        }
+    }
+    
+}
 ?>

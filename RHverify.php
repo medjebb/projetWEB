@@ -201,12 +201,13 @@
                                 <li  class="nav-item"  onclick="showReclamation(2)">
                                     <div style="cursor: pointer;" id="btn_verify_3" class="nav-link ">Conges</div>
                                 </li>
+                                <li  class="nav-item"  onclick="showReclamation(6)">
+                                    <div style="cursor: pointer;" id="btn_verify_5" class="nav-link ">Avance</div>
+                                </li>
                                 <li  class="nav-item"  onclick="showAbsence(3)">
                                     <div style="cursor: pointer;" id="btn_verify_4" class="nav-link ">Absence</div>
                                 </li>
-                                <li  class="nav-item"  onclick="showAvance(4)">
-                                    <div style="cursor: pointer;" id="btn_verify_5" class="nav-link ">Avance</div>
-                                </li>
+
                             </ul>
                         </div>
                         <div class="card-body">
