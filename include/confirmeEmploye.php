@@ -7,7 +7,22 @@ function genererMotDePasse($longueur) {
 }
 if(isset($_POST['addEmploye'])
 ){
+    
+    $file = $_FILES['file'];
+
+        $filename = $file['name'];
+        $filetmpname = $file['tmp_name'];
+        $filesize = $file['size'];
+        $filetype = $file['type'];
+
+
+        $filext = explode(".",$filename);
+        $fileExt = end($filext);
+        $image=rand().".".$fileExt;
+
+        move_uploaded_file($filetmpname,$_SERVER['DOCUMENT_ROOT']."/projetweb/img/pdp/".$image);
     $password=genererMotDePasse(8);
+
     $datecreation=date('Y-m-d');
      $employe = new Employe(
          $_POST['nom'],
@@ -18,7 +33,7 @@ if(isset($_POST['addEmploye'])
          $_POST['sexe'],
          'Employe',
          $_POST['adress'],
-         $_POST['image'],
+         $image,
          $_POST['diplome'],
          $_POST['DateNaissance'],
          $datecreation,

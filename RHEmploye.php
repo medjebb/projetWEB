@@ -295,7 +295,7 @@
                                                      "&numCIMR=".$employe['numCIMR'].
                                                      "&idEntreprise=".$employe['idEntreprise'].
                                                      "&RIB=".$employe['RIB']."' class='btn btn-warning btn-circle btn-sm'><i class='fas fa-exclamation-triangle'></i></a></td>
-                                                     <td><a href='include/deleteEmploye.php?idEmploye=".$employe['idEmploye'].
+                                                     <td><a href='include/deleteEmploye.php?idEmploye=".$employe['idEmploye']."&img=".$employe['Image'].
                                                      "' class='btn btn-danger btn-circle btn-sm'><i class='fas fa-trash'></i></a>
                                                      </td>
                                                 </tr>";

@@ -7,3 +7,4 @@ if(isset($_POST['addAvance'])
      $avance->save();
      header('location:../EmpAvance.php');
  }
+ ?>

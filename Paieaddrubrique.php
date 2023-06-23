@@ -119,7 +119,7 @@
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
+                                <button class="btn btn-primary" style="background-color: #8A61B1; border-color: #8A61B1;" type="button">
                                     <i class="fas fa-search fa-sm"></i>
                                 </button>
                             </div>
@@ -164,13 +164,13 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Ajouter des Entreprises</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Ajouter une rubrique</h1>
                     </div>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Entrer les Informations</h6>
+                            <h6 class="m-0 font-weight-bold "style="color:#8A61B1">Entrer les Informations</h6>
                         </div>
                         <div class="card-body">
                             <form  action="include/confirmrubrique.php" enctype="multipart/form-data" method="post">
@@ -181,7 +181,7 @@
                                             placeholder="Nom de rubrique" name="nomRubrique" required>
                                     </div>
                                 </div>
-                                <input type="submit" class ="btn btn-primary btn-user btn-block" value="Ajouter la rubrique" name='addrubrique'>
+                                <input type="submit" class ="btn btn-primary btn-user btn-block" style="background-color: #8A61B1; border-color: #8A61B1;" value="Ajouter la rubrique" name='addrubrique'>
                             </form>
                         </div>
                     </div>

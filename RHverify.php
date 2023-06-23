@@ -204,6 +204,9 @@
                                 <li  class="nav-item"  onclick="showAbsence(3)">
                                     <div style="cursor: pointer;" id="btn_verify_4" class="nav-link ">Absence</div>
                                 </li>
+                                <li  class="nav-item"  onclick="showAvance(4)">
+                                    <div style="cursor: pointer;" id="btn_verify_5" class="nav-link ">Avance</div>
+                                </li>
                             </ul>
                         </div>
                         <div class="card-body">

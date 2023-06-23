@@ -119,7 +119,7 @@
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
+                                <button style="background-color: #8A61B1; border-color: #8A61B1;" class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>
                                 </button>
                             </div>
@@ -162,16 +162,16 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <div  class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Gestion des rubriques</h1>
-                        <a href="Paieaddrubrique.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fa fa-plus fa-sm text-white-50"></i> Ajouter une rubrique</a>
+                        <a style="background-color: #8A61B1; border-color: #8A61B1;" href="Paieaddrubrique.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                         class="fa fa-plus fa-sm text-white-50"></i> Ajouter une rubrique</a>
                     </div>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Rubriques</h6>
+                        <div  class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold " style="color: #8A61B1;">Rubriques</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">

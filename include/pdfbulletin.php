@@ -230,6 +230,7 @@ session_start();
     $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
     // Save pdf
     $file_name = "bulletin_".$currentMonth."_".$currentYear."_".$_SESSION['id'];
+    $pdf->Output(dirname(__FILE__).'/bulletins/'.$file_name.'.pdf','F');
     $pdf->Output($file_name.'.pdf', 'I');
     
 

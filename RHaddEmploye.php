@@ -131,7 +131,7 @@
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
+                                <button class="btn btn-primary"  type="button">
                                     <i class="fas fa-search fa-sm"></i>
                                 </button>
                             </div>
@@ -194,7 +194,7 @@
                 <p>Remplissez tous les champs du formulaire pour passer à l'étape suivante </p>
                 <div class="row">
                     <div class="col-md-12 mx-0">
-                        <form id="msform" method="post" action="include/confirmeEmploye.php">
+                        <form id="msform" method="post" action="include/confirmeEmploye.php" enctype="multipart/form-data">
                             <!-- progressbar -->
                             <ul id="progressbar">
                             <li class="active" id="personal"><strong>Personnel</strong></li>
@@ -219,7 +219,7 @@
                                     <input type="adress" name="adress"    placeholder="Adresse" required/>
                                     <input type="text"   name="nbEnfant"  placeholder="Nombre d'Enfants" required/>
                                     <label for="formFile" style="color:black; font-family:times new roman; font-size:17px;margin-left:9px;">  Choisir une image :</label>
-                                    <input class="form-control" type="file" id="formFile" style="color:gray;" name="image" required> 
+                                    <input type="file" accept=".jpg,.png"class="form-control form-control-user" id="exampleFirstName" name="file" required>
                                     <select name="sexe" id="" style="color:gray;" required>
                                         <option value="Femme" style="color:black;" selected>Femme</option>
                                         <option value="Homme" style="color:black;">Homme</option>
